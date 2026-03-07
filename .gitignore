@@ -14,7 +14,6 @@
 /.phpunit.cache/
 ###< phpunit/phpunit ###
 
-###> symfony/asset-mapper ###
-
+###> symfony/asset-mapper ### 
 /assets/vendor/
 ###< symfony/asset-mapper ###

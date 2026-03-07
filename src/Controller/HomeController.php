@@ -125,7 +125,7 @@ final class HomeController extends AbstractController
         EntityManagerInterface $entityManager
     ): RedirectResponse {
         $contact = $entityManager->getRepository(Contact::class)->findOneBy([
-            'confirmationToken' => $token,
+            'confirmation_token' => $token,
         ]);
 
         if (!$contact) {

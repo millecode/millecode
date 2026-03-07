@@ -1,0 +1,2054 @@
+/* =========================================================
+   MILLECODE DESIGN SYSTEM
+   Intégration future de Nexa :
+   1) déposer vos fichiers .woff2/.woff dans /public/assets/fonts/
+   2) ajouter vos @font-face ici
+   3) conserver --millecode-font-family-base avec "Nexa" en premier
+========================================================= */
+
+/* @font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/Nexa-Regular.woff2') format('woff2'),
+         url('../fonts/Nexa-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/Nexa-Bold.woff2') format('woff2'),
+         url('../fonts/Nexa-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: "Nexa";
+    src: url("/assets/fonts/Raleway-Medium.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nexa";
+    src: url("/assets/fonts/Nexa-Bold.otf") format("otf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --millecode-color-primary: #002b5b;
+    --millecode-color-primary-strong: #001d3d;
+    --millecode-color-primary-soft: #eef5fb;
+    --millecode-color-secondary: #28a745;
+    --millecode-color-secondary-soft: #edf9f0;
+    --millecode-color-accent: #0f5c8a;
+    --millecode-color-text: #162033;
+    --millecode-color-text-soft: #5b6577;
+    --millecode-color-border: rgba(0, 43, 91, 0.1);
+    --millecode-color-border-strong: rgba(0, 43, 91, 0.18);
+    --millecode-color-white: #ffffff;
+    --millecode-color-surface: #f8fbff;
+    --millecode-color-surface-alt: #f2f7fc;
+
+    --millecode-font-family-base:
+        "Nexa", "Sora", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+
+    --millecode-shadow-xs: 0 8px 20px rgba(8, 35, 74, 0.04);
+    --millecode-shadow-sm: 0 14px 34px rgba(8, 35, 74, 0.08);
+    --millecode-shadow-md: 0 20px 48px rgba(8, 35, 74, 0.12);
+    --millecode-shadow-lg: 0 24px 80px rgba(3, 24, 52, 0.16);
+
+    --millecode-radius-sm: 12px;
+    --millecode-radius-md: 18px;
+    --millecode-radius-lg: 24px;
+    --millecode-radius-xl: 32px;
+    --millecode-radius-pill: 999px;
+
+    --millecode-transition-fast: 0.25s ease;
+    --millecode-transition-base: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    --millecode-navbar-height: 92px;
+    --millecode-section-space: clamp(5rem, 8vw, 7.5rem);
+    --millecode-testimonial-gap: 24px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--millecode-font-family-base);
+    color: var(--millecode-color-text);
+    background-color: var(--millecode-color-white);
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body.millecode-nav-open {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    background: transparent;
+}
+
+::selection {
+    background: rgba(40, 167, 69, 0.18);
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-container {
+    max-width: 1280px;
+}
+
+.millecode-main-content {
+    overflow: clip;
+}
+
+.millecode-page-shell {
+    position: relative;
+    background: var(--millecode-color-white);
+}
+
+/* =========================================================
+   GLOBAL SECTION STYLES
+========================================================= */
+.millecode-section-heading {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+}
+
+.millecode-section-kicker,
+.millecode-section-badge,
+.millecode-cta-kicker,
+.millecode-project-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--millecode-color-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--millecode-radius-pill);
+    background: linear-gradient(
+        180deg,
+        rgba(238, 245, 251, 0.95),
+        rgba(245, 250, 255, 0.95)
+    );
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: var(--millecode-shadow-xs);
+}
+
+.millecode-section-title,
+.millecode-hero-title,
+.millecode-cta-title {
+    margin: 0 0 1rem;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.millecode-section-title-left,
+.millecode-section-text-left {
+    max-width: 760px;
+}
+
+.millecode-section-text,
+.millecode-hero-text,
+.millecode-service-text,
+.millecode-project-text,
+.millecode-testimonial-text,
+.millecode-footer-description,
+.millecode-value-text {
+    color: var(--millecode-color-text-soft);
+    font-size: 1.02rem;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.millecode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 54px;
+    padding: 0.95rem 1.4rem;
+    border-radius: 17px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        background-color var(--millecode-transition-fast),
+        color var(--millecode-transition-fast),
+        border-color var(--millecode-transition-fast);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.millecode-btn:hover {
+    transform: translateY(-2px);
+}
+
+.millecode-btn-primary {
+    color: var(--millecode-color-white);
+    background: var(--millecode-color-secondary);
+    box-shadow: 0 14px 30px rgba(0, 43, 91, 0.2);
+}
+
+.millecode-btn-primary:hover {
+    color: var(--millecode-color-white);
+    box-shadow: 0 22px 48px rgba(0, 43, 91, 0.24);
+}
+
+.millecode-btn-outline {
+    color: var(--millecode-color-primary);
+    border: 1px solid rgba(0, 43, 91, 0.18);
+    background: var(--millecode-color-white);
+    box-shadow: var(--millecode-shadow-xs);
+}
+
+.millecode-btn-outline:hover {
+    color: var(--millecode-color-white);
+    background: var(--millecode-color-primary);
+    border-color: transparent;
+}
+
+.millecode-btn-outline-light {
+    color: var(--millecode-color-white);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+}
+
+.millecode-btn-outline-light:hover {
+    color: var(--millecode-color-primary-strong);
+    background: var(--millecode-color-white);
+}
+
+.millecode-btn-soft {
+    color: var(--millecode-color-primary);
+    background: var(--millecode-color-primary-soft);
+    border: 1px solid transparent;
+}
+
+.millecode-btn-soft:hover {
+    background: var(--millecode-color-primary);
+    color: var(--millecode-color-white);
+}
+
+.millecode-btn-navbar {
+    min-height: 50px;
+    padding-inline: 1.35rem;
+}
+
+.millecode-btn-mobile-nav {
+    width: 100%;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.millecode-site-header {
+    position: relative;
+    z-index: 1200;
+}
+
+.millecode-navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--millecode-navbar-height);
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition:
+        background-color var(--millecode-transition-base),
+        box-shadow var(--millecode-transition-base),
+        border-color var(--millecode-transition-base);
+}
+
+.millecode-navbar.millecode-is-scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom-color: rgba(0, 43, 91, 0.08);
+    box-shadow: 0 14px 32px rgba(11, 31, 58, 0.08);
+}
+
+.millecode-navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.millecode-navbar-logo {
+    width: 100%;
+    height: 50px;
+    object-fit: contain;
+}
+
+.millecode-navbar-brand-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--millecode-color-primary-strong);
+    letter-spacing: -0.02em;
+}
+
+.millecode-navbar-desktop {
+    margin-left: auto;
+}
+
+.millecode-navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+}
+
+.millecode-nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--millecode-color-text);
+    transition: color var(--millecode-transition-fast);
+}
+
+.millecode-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    width: 100%;
+    height: 2px;
+    border-radius: var(--millecode-radius-pill);
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(
+        90deg,
+        var(--millecode-color-primary),
+        var(--millecode-color-secondary)
+    );
+    transition: transform var(--millecode-transition-fast);
+}
+
+.millecode-nav-link:hover {
+    color: var(--millecode-color-primary);
+}
+
+.millecode-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.millecode-navbar-toggler {
+    margin-left: auto;
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 14px;
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    background: var(--millecode-color-white);
+    box-shadow: var(--millecode-shadow-xs);
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        border-color var(--millecode-transition-fast);
+}
+
+.millecode-navbar-toggler:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--millecode-shadow-sm);
+    border-color: rgba(0, 43, 91, 0.18);
+}
+
+.millecode-navbar-toggler-line {
+    width: 100%;
+    height: 2px;
+    border-radius: var(--millecode-radius-pill);
+    background: var(--millecode-color-primary-strong);
+}
+
+.millecode-navbar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 22, 43, 0.46);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity var(--millecode-transition-fast),
+        visibility var(--millecode-transition-fast);
+    z-index: 1190;
+}
+
+.millecode-navbar-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(88vw, 360px);
+    height: 100vh;
+    padding: 1.35rem 1.15rem 1.8rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+    transform: translateX(-105%);
+    transition: transform var(--millecode-transition-base);
+    box-shadow: 28px 0 70px rgba(2, 20, 44, 0.18);
+    z-index: 1201;
+    display: flex;
+    flex-direction: column;
+}
+
+body.millecode-nav-open .millecode-navbar-backdrop {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.millecode-nav-open .millecode-navbar-drawer {
+    transform: translateX(0);
+}
+
+.millecode-navbar-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid rgba(0, 43, 91, 0.08);
+}
+
+.millecode-navbar-drawer-close {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--millecode-color-primary);
+    background: var(--millecode-color-white);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: var(--millecode-shadow-xs);
+}
+
+.millecode-navbar-drawer-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 100%;
+    padding-top: 1.5rem;
+}
+
+.millecode-navbar-drawer-menu {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.millecode-navbar-drawer-menu .millecode-nav-link {
+    padding: 0.95rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(0, 43, 91, 0.06);
+}
+
+.millecode-navbar-drawer-menu .millecode-nav-link::after {
+    display: none;
+}
+
+.millecode-navbar-drawer-contact {
+    padding: 1.15rem;
+    border-radius: var(--millecode-radius-lg);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.05),
+        rgba(40, 167, 69, 0.1)
+    );
+    border: 1px solid rgba(0, 43, 91, 0.08);
+}
+
+.millecode-navbar-drawer-contact-title {
+    margin-bottom: 0.5rem;
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-navbar-drawer-contact-link {
+    display: block;
+    color: var(--millecode-color-text-soft);
+    font-size: 0.98rem;
+    margin-top: 0.3rem;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.millecode-hero-section {
+    padding-top: calc(var(--millecode-navbar-height) + 3.2rem);
+    padding-bottom: var(--millecode-section-space);
+    position: relative;
+}
+
+.millecode-hero-content {
+    max-width: 650px;
+}
+
+.millecode-hero-title {
+    font-size: clamp(2.65rem, 5vw, 5rem);
+    margin-top: 1.35rem;
+}
+
+.millecode-hero-text {
+    max-width: 620px;
+    margin-bottom: 2rem;
+    font-size: 1.08rem;
+}
+
+.millecode-hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.millecode-hero-socials {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.millecode-hero-socials-label {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--millecode-color-primary);
+}
+
+.millecode-hero-socials-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.millecode-social-link {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--millecode-color-primary);
+    background: var(--millecode-color-white);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: var(--millecode-shadow-xs);
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        background-color var(--millecode-transition-fast),
+        color var(--millecode-transition-fast);
+}
+
+.millecode-social-link:hover {
+    transform: translateY(-2px);
+    background: var(--millecode-color-primary);
+    color: var(--millecode-color-white);
+    box-shadow: var(--millecode-shadow-sm);
+}
+
+.millecode-hero-visual {
+    position: relative;
+    min-height: 620px;
+    border-radius: 36px;
+    background:
+        radial-gradient(
+            circle at 18% 22%,
+            rgba(40, 167, 69, 0.12),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(0, 43, 91, 0.12),
+            transparent 24%
+        ),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    border: 1px solid rgba(0, 43, 91, 0.06);
+    box-shadow: var(--millecode-shadow-md);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.millecode-hero-visual::before,
+.millecode-hero-visual::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(24px);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.millecode-hero-visual::before {
+    width: 220px;
+    height: 220px;
+    background: rgba(0, 43, 91, 0.08);
+    top: 14%;
+    left: -30px;
+}
+
+.millecode-hero-visual::after {
+    width: 240px;
+    height: 240px;
+    background: rgba(40, 167, 69, 0.1);
+    right: -50px;
+    bottom: 10%;
+}
+
+.millecode-hero-mosaic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    z-index: 2;
+}
+
+.millecode-hero-media {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 2px solid rgba(0, 43, 91, 0.08);
+    box-shadow: 0 18px 45px rgba(0, 43, 91, 0.14);
+    transition:
+        transform var(--millecode-transition-base),
+        box-shadow var(--millecode-transition-base),
+        border-color var(--millecode-transition-base);
+}
+
+.millecode-hero-media:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 55px rgba(0, 43, 91, 0.18);
+    border-color: rgba(0, 43, 91, 0.16);
+}
+
+.millecode-hero-media-left {
+    top: 78px;
+    left: 44px;
+    width: 42%;
+    height: 340px;
+}
+
+.millecode-hero-media-top-right {
+    top: 86px;
+    right: 38px;
+    width: 43%;
+    height: 158px;
+}
+
+.millecode-hero-media-bottom-right {
+    top: 242px;
+    right: 36px;
+    width: 52%;
+    height: 250px;
+}
+
+.millecode-hero-media-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.millecode-floating-badge {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: var(--millecode-shadow-sm);
+    color: var(--millecode-color-primary);
+    font-size: 0.88rem;
+    font-weight: 800;
+    backdrop-filter: blur(16px);
+}
+
+.millecode-floating-badge-top {
+    top: 100px;
+    right: 32px;
+}
+
+.millecode-floating-badge-right {
+    right: 6px;
+    bottom: 108px;
+}
+
+.millecode-floating-badge-bottom {
+    left: 34px;
+    bottom: 30px;
+}
+
+.millecode-floating-code {
+    position: absolute;
+    top: 48%;
+    left: 45%;
+    display: grid;
+    gap: 0.7rem;
+    z-index: 1;
+}
+
+.millecode-floating-code span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    min-height: 40px;
+    padding-inline: 0.9rem;
+    border-radius: 14px;
+    background: rgba(0, 43, 91, 0.05);
+    color: var(--millecode-color-primary);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+/* =========================================================
+   TRUST / PARTNERS
+========================================================= */
+.millecode-trust-section,
+.millecode-about-section,
+.millecode-solutions-section,
+.millecode-projects-section,
+.millecode-testimonials-section,
+.millecode-cta-section {
+    padding-block: var(--millecode-section-space);
+}
+
+.millecode-trust-card {
+    height: 100%;
+    min-height: 150px;
+    padding: 1.5rem 1rem;
+    border-radius: 24px;
+    background: var(--millecode-color-white);
+    border: 1px solid var(--millecode-color-border);
+    box-shadow: var(--millecode-shadow-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        border-color var(--millecode-transition-fast);
+}
+
+.millecode-trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--millecode-shadow-sm);
+    border-color: rgba(0, 43, 91, 0.18);
+}
+
+.millecode-trust-logo {
+    width: 120px;
+    height: 52px;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.82;
+    transition:
+        filter var(--millecode-transition-fast),
+        opacity var(--millecode-transition-fast);
+}
+
+.millecode-trust-card:hover .millecode-trust-logo {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.millecode-trust-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--millecode-color-primary);
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+.millecode-about-image-wrap {
+    position: relative;
+    border-radius: 34px;
+    padding: 14px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.1),
+        rgba(40, 167, 69, 0.12)
+    );
+    box-shadow: var(--millecode-shadow-md);
+}
+
+.millecode-about-image {
+    width: 100%;
+    min-height: 580px;
+    object-fit: cover;
+    border-radius: 28px;
+}
+
+.millecode-about-content {
+    padding-left: 0.25rem;
+}
+
+.millecode-value-card {
+    height: 100%;
+    padding: 1.4rem;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border: 1px solid var(--millecode-color-border);
+    box-shadow: var(--millecode-shadow-xs);
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast);
+}
+
+.millecode-value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--millecode-shadow-sm);
+}
+
+.millecode-value-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--millecode-color-primary);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.08),
+        rgba(40, 167, 69, 0.12)
+    );
+    font-size: 1.2rem;
+}
+
+.millecode-value-title {
+    margin: 0 0 0.55rem;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-value-text {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+.millecode-solutions-section {
+    background: linear-gradient(
+        180deg,
+        rgba(248, 251, 255, 0.72),
+        rgba(255, 255, 255, 1)
+    );
+}
+
+.millecode-service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    padding: 1.7rem;
+    border-radius: 28px;
+    background: var(--millecode-color-white);
+    border: 1px solid var(--millecode-color-border);
+    box-shadow: var(--millecode-shadow-xs);
+    transition:
+        transform var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        border-color var(--millecode-transition-fast);
+}
+
+.millecode-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--millecode-shadow-md);
+    border-color: rgba(0, 43, 91, 0.16);
+}
+
+.millecode-service-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--millecode-color-primary);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.08),
+        rgba(40, 167, 69, 0.12)
+    );
+    font-size: 1.5rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.millecode-service-title {
+    margin: 0;
+    font-size: 1.32rem;
+    line-height: 1.25;
+    font-weight: 800;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-service-text {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.millecode-service-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.millecode-service-tech-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 38px;
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--millecode-radius-pill);
+    background: rgba(0, 43, 91, 0.04);
+    color: var(--millecode-color-primary);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+.millecode-project-list {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.millecode-project-card {
+    overflow: hidden;
+    border-radius: 32px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafeff 100%);
+    border: 1px solid var(--millecode-color-border);
+    box-shadow: var(--millecode-shadow-sm);
+}
+
+.millecode-project-content {
+    padding: 2rem;
+}
+
+.millecode-project-title {
+    margin: 1rem 0 1rem;
+    font-size: clamp(1.8rem, 2.6vw, 2.45rem);
+    line-height: 1.12;
+    font-weight: 800;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-project-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.millecode-project-date-item {
+    min-width: 170px;
+    padding: 0.9rem 1rem;
+    border-radius: 20px;
+    background: rgba(0, 43, 91, 0.04);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+}
+
+.millecode-project-date-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--millecode-color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.millecode-project-date-value {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--millecode-color-text);
+}
+
+.millecode-project-text {
+    margin-bottom: 1.25rem;
+}
+
+.millecode-project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.millecode-project-stack-item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--millecode-radius-pill);
+    background: linear-gradient(
+        180deg,
+        rgba(238, 245, 251, 0.9),
+        rgba(248, 251, 255, 1)
+    );
+    color: var(--millecode-color-primary);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.millecode-project-image-wrap {
+    height: 100%;
+    min-height: 100%;
+    padding: 1rem;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.04),
+        rgba(40, 167, 69, 0.06)
+    );
+}
+
+.millecode-project-image {
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: var(--millecode-shadow-xs);
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+.millecode-testimonials-shell {
+    position: relative;
+}
+
+.millecode-testimonials-viewport {
+    overflow: hidden;
+    padding: 0.4rem 0.15rem 0.8rem;
+}
+
+.millecode-testimonials-track {
+    display: flex;
+    gap: var(--millecode-testimonial-gap);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.millecode-testimonial-card {
+    flex: 0 0 calc((100% - (var(--millecode-testimonial-gap) * 2)) / 3);
+    min-height: 100%;
+    padding: 1.7rem;
+    border-radius: 28px;
+    background: var(--millecode-color-white);
+    border: 1px solid var(--millecode-color-border);
+    box-shadow: var(--millecode-shadow-xs);
+    display: flex;
+    flex-direction: column;
+}
+
+.millecode-testimonial-rating {
+    display: inline-flex;
+    gap: 0.3rem;
+    color: #ffb648;
+    margin-bottom: 1.15rem;
+}
+
+.millecode-testimonial-text {
+    margin: 0 0 1.5rem;
+    font-size: 0.98rem;
+    flex-grow: 1;
+}
+
+.millecode-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.95rem;
+}
+
+.millecode-testimonial-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: linear-gradient(
+        135deg,
+        var(--millecode-color-primary),
+        var(--millecode-color-secondary)
+    );
+    color: var(--millecode-color-white);
+    font-size: 1.05rem;
+    font-weight: 800;
+    box-shadow: var(--millecode-shadow-xs);
+}
+
+.millecode-testimonial-name {
+    margin: 0 0 0.2rem;
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-testimonial-role {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--millecode-color-text-soft);
+}
+
+.millecode-testimonials-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 2rem;
+}
+
+.millecode-testimonials-control {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--millecode-color-primary);
+    background: var(--millecode-color-white);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: var(--millecode-shadow-xs);
+    transition:
+        transform var(--millecode-transition-fast),
+        background-color var(--millecode-transition-fast),
+        color var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast);
+}
+
+.millecode-testimonials-control:hover {
+    transform: translateY(-2px);
+    background: var(--millecode-color-primary);
+    color: var(--millecode-color-white);
+    box-shadow: var(--millecode-shadow-sm);
+}
+
+/* =========================================================
+   CTA SECTION
+========================================================= */
+.millecode-cta-card {
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 36px;
+    background:
+        radial-gradient(
+            circle at 12% 24%,
+            rgba(40, 167, 69, 0.2),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(255, 255, 255, 0.08),
+            transparent 22%
+        ),
+        linear-gradient(135deg, #001c3d 0%, #002b5b 48%, #005b70 100%);
+    color: var(--millecode-color-white);
+    box-shadow: var(--millecode-shadow-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.millecode-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -30px -30px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    filter: blur(4px);
+}
+
+.millecode-cta-kicker {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.96);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+.millecode-cta-title {
+    color: var(--millecode-color-white);
+    font-size: clamp(1.7rem, 3vw, 2.55rem);
+    max-width: 900px;
+    margin-bottom: 0;
+}
+
+.millecode-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    align-items: flex-start;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.millecode-footer {
+    background: linear-gradient(180deg, #00182f 0%, #001427 100%);
+    color: rgba(255, 255, 255, 0.82);
+    padding-top: 5rem;
+}
+
+.millecode-footer-top {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.millecode-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.millecode-footer-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.millecode-footer-brand-text {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--millecode-color-white);
+}
+
+.millecode-footer-description {
+    max-width: 360px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25rem;
+}
+
+.millecode-footer-socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.millecode-footer-social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--millecode-color-white);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+        transform var(--millecode-transition-fast),
+        background-color var(--millecode-transition-fast),
+        color var(--millecode-transition-fast);
+}
+
+.millecode-footer-social-link:hover {
+    transform: translateY(-2px);
+    background: var(--millecode-color-white);
+    color: var(--millecode-color-primary);
+}
+
+.millecode-footer-title {
+    margin: 0 0 1.15rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--millecode-color-white);
+}
+
+.millecode-footer-links {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.millecode-footer-link {
+    color: rgba(255, 255, 255, 0.74);
+    transition:
+        color var(--millecode-transition-fast),
+        transform var(--millecode-transition-fast);
+}
+
+.millecode-footer-link:hover {
+    color: var(--millecode-color-white);
+}
+
+.millecode-footer-contact {
+    display: grid;
+    gap: 1rem;
+}
+
+.millecode-footer-contact-label {
+    display: block;
+    margin-bottom: 0.22rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.48);
+}
+
+.millecode-footer-contact-text {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.millecode-footer-bottom {
+    padding: 1.2rem 0 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.millecode-footer-copyright,
+.millecode-footer-credit {
+    margin: 0;
+    font-size: 0.93rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+[data-millecode-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-millecode-reveal].millecode-is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+@keyframes millecodeFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--millecode-float-rotation, 0deg));
+    }
+    50% {
+        transform: translateY(-8px)
+            rotate(var(--millecode-float-rotation, 0deg));
+    }
+}
+
+.millecode-hero-card-secondary {
+    --millecode-float-rotation: -7deg;
+}
+
+.millecode-hero-card-main {
+    --millecode-float-rotation: 5deg;
+}
+
+.millecode-hero-card-tertiary {
+    --millecode-float-rotation: -4deg;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1199.98px) {
+    .millecode-hero-visual,
+    .millecode-hero-mosaic {
+        min-height: 580px;
+    }
+
+    .millecode-hero-media-left {
+        left: 34px;
+        width: 43%;
+        height: 320px;
+    }
+
+    .millecode-hero-media-top-right {
+        right: 28px;
+        width: 42%;
+        height: 150px;
+    }
+
+    .millecode-hero-media-bottom-right {
+        right: 26px;
+        width: 52%;
+        height: 230px;
+    }
+
+    .millecode-testimonial-card {
+        flex: 0 0 calc((100% - var(--millecode-testimonial-gap)) / 2);
+    }
+}
+
+@media (max-width: 991.98px) {
+    :root {
+        --millecode-navbar-height: 84px;
+    }
+
+    .millecode-hero-section {
+        padding-top: calc(var(--millecode-navbar-height) + 2.2rem);
+    }
+
+    .millecode-hero-content {
+        max-width: 100%;
+    }
+
+    .millecode-hero-visual,
+    .millecode-hero-mosaic {
+        min-height: 560px;
+    }
+
+    .millecode-hero-media-left {
+        top: 86px;
+        left: 30px;
+        width: 42%;
+        height: 300px;
+    }
+
+    .millecode-hero-media-top-right {
+        top: 90px;
+        right: 30px;
+        width: 42%;
+        height: 145px;
+    }
+
+    .millecode-hero-media-bottom-right {
+        top: 236px;
+        right: 28px;
+        width: 51%;
+        height: 220px;
+    }
+
+    .millecode-floating-code {
+        left: 42%;
+        top: 47%;
+    }
+
+    .millecode-about-image {
+        min-height: 460px;
+    }
+
+    .millecode-project-image {
+        min-height: 320px;
+    }
+
+    .millecode-cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 767.98px) {
+    :root {
+        --millecode-section-space: 4rem;
+    }
+
+    .millecode-section-title {
+        font-size: 1.9rem;
+    }
+
+    .millecode-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .millecode-hero-socials {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .millecode-hero-visual,
+    .millecode-hero-mosaic {
+        min-height: 500px;
+        border-radius: 28px;
+    }
+
+    .millecode-hero-media {
+        border-radius: 6px;
+    }
+
+    .millecode-hero-media-left {
+        top: 78px;
+        left: 20px;
+        width: 44%;
+        height: 250px;
+    }
+
+    .millecode-hero-media-top-right {
+        top: 82px;
+        right: 20px;
+        width: 43%;
+        height: 120px;
+    }
+
+    .millecode-hero-media-bottom-right {
+        top: 206px;
+        right: 20px;
+        width: 54%;
+        height: 190px;
+    }
+
+    .millecode-floating-badge {
+        font-size: 0.78rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 14px;
+    }
+
+    .millecode-floating-badge-top {
+        top: 16px;
+        right: 18px;
+    }
+
+    .millecode-floating-badge-right {
+        right: 6px;
+        bottom: 92px;
+    }
+
+    .millecode-floating-badge-bottom {
+        left: 18px;
+        bottom: 20px;
+    }
+
+    .millecode-floating-code {
+        display: none;
+    }
+
+    .millecode-project-content,
+    .millecode-service-card,
+    .millecode-testimonial-card,
+    .millecode-cta-card {
+        padding: 1.35rem;
+    }
+
+    .millecode-project-dates {
+        flex-direction: column;
+    }
+
+    .millecode-testimonial-card {
+        flex: 0 0 100%;
+    }
+
+    .millecode-footer-bottom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .millecode-navbar-logo,
+    .millecode-footer-logo {
+        width: 100%;
+        height: 40px;
+    }
+
+    .millecode-navbar-brand-text,
+    .millecode-footer-brand-text {
+        font-size: 1.02rem;
+    }
+
+    .millecode-hero-title {
+        font-size: 2.15rem;
+    }
+
+    .millecode-hero-cta-group,
+    .millecode-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .millecode-btn,
+    .millecode-btn-navbar {
+        width: 100%;
+    }
+
+    .millecode-hero-visual,
+    .millecode-hero-mosaic {
+        min-height: 430px;
+    }
+
+    .millecode-hero-media-left {
+        top: 68px;
+        left: 14px;
+        width: 44%;
+        height: 205px;
+    }
+
+    .millecode-hero-media-top-right {
+        top: 70px;
+        right: 14px;
+        width: 43%;
+        height: 96px;
+    }
+
+    .millecode-hero-media-bottom-right {
+        top: 168px;
+        right: 14px;
+        width: 55%;
+        height: 158px;
+    }
+
+    .millecode-floating-badge-top {
+        top: 10px;
+        right: 12px;
+    }
+
+    .millecode-floating-badge-right {
+        right: 4px;
+        bottom: 74px;
+    }
+
+    .millecode-floating-badge-bottom {
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .millecode-about-image {
+        min-height: 380px;
+    }
+
+    .millecode-navbar-drawer {
+        width: 92vw;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.millecode-contact-section {
+    padding-block: var(--millecode-section-space);
+    background:
+        radial-gradient(
+            circle at 8% 14%,
+            rgba(40, 167, 69, 0.08),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(0, 43, 91, 0.08),
+            transparent 22%
+        ),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    position: relative;
+}
+
+.millecode-contact-card,
+.millecode-contact-form-card {
+    height: 100%;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 44px rgba(0, 43, 91, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.millecode-contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+    padding: 1.6rem;
+    transition:
+        transform var(--millecode-transition-base),
+        box-shadow var(--millecode-transition-base),
+        border-color var(--millecode-transition-base);
+}
+
+.millecode-contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 56px rgba(0, 43, 91, 0.12);
+    border-color: rgba(0, 43, 91, 0.16);
+}
+
+.millecode-contact-card-icon {
+    width: 68px;
+    height: 68px;
+    flex: 0 0 68px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 43, 91, 0.09),
+        rgba(40, 167, 69, 0.16)
+    );
+    color: var(--millecode-color-primary);
+    font-size: 1.35rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.millecode-contact-card-content {
+    flex: 1 1 auto;
+}
+
+.millecode-contact-card-kicker {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--millecode-color-secondary);
+}
+
+.millecode-contact-card-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-contact-card-link {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--millecode-color-primary);
+    margin-bottom: 0.65rem;
+    word-break: break-word;
+}
+
+.millecode-contact-card-link:hover {
+    color: var(--millecode-color-secondary);
+}
+
+.millecode-contact-card-link-static {
+    cursor: default;
+}
+
+.millecode-contact-card-text {
+    margin: 0;
+    color: var(--millecode-color-text-soft);
+    line-height: 1.8;
+}
+
+.millecode-contact-form-card {
+    padding: clamp(1.4rem, 3vw, 2rem);
+}
+
+.millecode-contact-form-head {
+    margin-bottom: 1.35rem;
+}
+
+.millecode-contact-form-kicker {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--millecode-color-secondary);
+}
+
+.millecode-contact-form-title {
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+    font-weight: 800;
+    line-height: 1.18;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-contact-form-text {
+    margin: 0;
+    color: var(--millecode-color-text-soft);
+    line-height: 1.8;
+}
+
+.millecode-contact-form-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.millecode-contact-form-alert-danger {
+    color: #9d1c1c;
+    background: #fff2f2;
+    border: 1px solid #ffd1d1;
+}
+
+.millecode-contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.millecode-contact-label {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-contact-input,
+.millecode-contact-textarea {
+    width: 100%;
+    min-height: 56px;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 43, 91, 0.1);
+    background: #ffffff;
+    color: var(--millecode-color-text);
+    box-shadow: inset 0 1px 2px rgba(0, 43, 91, 0.03);
+    transition:
+        border-color var(--millecode-transition-fast),
+        box-shadow var(--millecode-transition-fast),
+        transform var(--millecode-transition-fast);
+}
+
+.millecode-contact-input:focus,
+.millecode-contact-textarea:focus {
+    outline: none;
+    border-color: rgba(0, 43, 91, 0.28);
+    box-shadow: 0 0 0 4px rgba(0, 43, 91, 0.08);
+}
+
+.millecode-contact-textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.millecode-contact-errors {
+    min-height: 1px;
+}
+
+.millecode-contact-errors ul {
+    margin: 0;
+    padding-left: 1rem;
+    color: #b42318;
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+.millecode-contact-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.35rem;
+    flex-wrap: wrap;
+}
+
+.millecode-contact-form-note {
+    margin: 0;
+    max-width: 420px;
+    color: var(--millecode-color-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.millecode-contact-submit {
+    min-width: 220px;
+}
+
+.millecode-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* =========================================================
+   CONTACT MODAL
+========================================================= */
+
+.millecode-contact-modal .modal-dialog {
+    max-width: 560px;
+}
+
+.millecode-contact-modal-content {
+    border: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 30px 80px rgba(0, 43, 91, 0.2);
+}
+
+.millecode-contact-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.4rem 1.4rem 0;
+    border-bottom: 0;
+}
+
+.millecode-contact-modal-close {
+    filter: none;
+    opacity: 0.7;
+}
+
+.millecode-contact-modal-body {
+    padding: 0 1.4rem 1.4rem;
+}
+
+.millecode-contact-modal-kicker {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--millecode-color-secondary);
+}
+
+.millecode-contact-modal-title {
+    margin: 0 0 0.55rem;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--millecode-color-primary-strong);
+}
+
+.millecode-contact-modal-text {
+    margin: 0;
+    color: var(--millecode-color-text-soft);
+    line-height: 1.8;
+}
+
+.millecode-contact-modal-footer {
+    padding: 0 1.4rem 1.4rem;
+    border-top: 0;
+}
+
+.millecode-contact-modal-icon {
+    width: 74px;
+    height: 74px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    font-size: 1.8rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.millecode-contact-modal-icon-success {
+    color: #127c42;
+    background: linear-gradient(
+        135deg,
+        rgba(40, 167, 69, 0.12),
+        rgba(40, 167, 69, 0.24)
+    );
+}
+
+.millecode-contact-modal-icon-warning {
+    color: #a15c00;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 193, 7, 0.14),
+        rgba(255, 193, 7, 0.24)
+    );
+}
+
+.millecode-contact-modal-icon-danger {
+    color: #b42318;
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.12),
+        rgba(239, 68, 68, 0.22)
+    );
+}
+
+@media (max-width: 767.98px) {
+    .millecode-contact-card,
+    .millecode-contact-form-card {
+        border-radius: 24px;
+    }
+
+    .millecode-contact-card {
+        padding: 1.25rem;
+    }
+
+    .millecode-contact-card-icon {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+        border-radius: 18px;
+    }
+
+    .millecode-contact-form-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .millecode-contact-submit {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .millecode-contact-modal-title {
+        font-size: 1.4rem;
+    }
+}

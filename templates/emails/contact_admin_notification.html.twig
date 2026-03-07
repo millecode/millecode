@@ -1,0 +1,157 @@
+{# templates/emails/contact_admin_notification.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Nouveau message Millecode</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #f4f8fc;
+				font-family: Arial, Helvetica, sans-serif;
+				color: #162033;
+			}
+			.millecode-email-wrapper {
+				width: 100%;
+				padding: 32px 16px;
+				background: #f4f8fc;
+			}
+			.millecode-email-card {
+				max-width: 680px;
+				margin: 0 auto;
+				background: #ffffff;
+				border-radius: 24px;
+				overflow: hidden;
+				border: 1px solid rgba(0, 43, 91, 0.08);
+				box-shadow: 0 12px 32px rgba(0, 43, 91, 0.08);
+			}
+			.millecode-email-header {
+				padding: 32px;
+				background: linear-gradient(135deg, #002b5b 0%, #014887 70%, #28a745 100%);
+				color: #ffffff;
+			}
+			.millecode-email-kicker {
+				display: inline-block;
+				padding: 8px 14px;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.12);
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				margin-bottom: 16px;
+			}
+			.millecode-email-title {
+				margin: 0 0 10px;
+				font-size: 28px;
+				line-height: 1.2;
+			}
+			.millecode-email-subtitle {
+				margin: 0;
+				font-size: 15px;
+				line-height: 1.7;
+				color: rgba(255, 255, 255, 0.88);
+			}
+			.millecode-email-body {
+				padding: 32px;
+			}
+			.millecode-email-grid {
+				width: 100%;
+				border-collapse: separate;
+				border-spacing: 0 12px;
+			}
+			.millecode-email-grid-label {
+				width: 180px;
+				font-weight: 700;
+				color: #002b5b;
+				vertical-align: top;
+			}
+			.millecode-email-grid-value {
+				color: #445067;
+				vertical-align: top;
+			}
+			.millecode-email-box {
+				margin-top: 20px;
+				padding: 20px;
+				background: #f8fbff;
+				border: 1px solid rgba(0, 43, 91, 0.08);
+				border-radius: 18px;
+			}
+			.millecode-email-box-title {
+				margin: 0 0 12px;
+				font-size: 16px;
+				color: #002b5b;
+			}
+			.millecode-email-message {
+				margin: 0;
+				white-space: pre-line;
+				color: #344158;
+				line-height: 1.8;
+			}
+			.millecode-email-footer {
+				padding: 24px 32px 32px;
+				color: #6a7487;
+				font-size: 13px;
+				line-height: 1.7;
+			}
+			a {
+				color: #0b7c5d;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="millecode-email-wrapper">
+			<div class="millecode-email-card">
+				<div class="millecode-email-header">
+					<span class="millecode-email-kicker">Nouveau contact</span>
+					<h1 class="millecode-email-title">Un visiteur a envoyé un message via le site Millecode</h1>
+					<p class="millecode-email-subtitle">
+						Une nouvelle demande a été soumise depuis le formulaire de contact du site.
+					</p>
+				</div>
+
+				<div class="millecode-email-body">
+					<table class="millecode-email-grid" role="presentation">
+						<tr>
+							<td class="millecode-email-grid-label">Nom</td>
+							<td class="millecode-email-grid-value">{{ clientName }}</td>
+						</tr>
+						<tr>
+							<td class="millecode-email-grid-label">E-mail</td>
+							<td class="millecode-email-grid-value">
+								<a href="mailto:{{ clientEmail }}">{{ clientEmail }}</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="millecode-email-grid-label">Téléphone</td>
+							<td class="millecode-email-grid-value">
+								<a href="tel:{{ clientPhone|replace({' ': ''}) }}">{{ clientPhone }}</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="millecode-email-grid-label">Sujet</td>
+							<td class="millecode-email-grid-value">{{ clientSubject }}</td>
+						</tr>
+						<tr>
+							<td class="millecode-email-grid-label">Date</td>
+							<td class="millecode-email-grid-value">{{ sentAt|date('d/m/Y à H:i') }}</td>
+						</tr>
+					</table>
+
+					<div class="millecode-email-box">
+						<h2 class="millecode-email-box-title">Message</h2>
+						<p class="millecode-email-message">{{ clientMessage }}</p>
+					</div>
+				</div>
+
+				<div class="millecode-email-footer text-center">
+					<p>Millecode : Agence de développement web et mobile.</p>
+					<p>Email : mohamed@millecode.com</p>
+					<p>Téléphone : +253 77369958</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

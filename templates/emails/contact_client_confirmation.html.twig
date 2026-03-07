@@ -1,0 +1,96 @@
+{# templates/emails/contact_client_confirmation.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Confirmez votre adresse e-mail - Millecode</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #f4f8fc;
+				font-family: Arial, Helvetica, sans-serif;
+				color: #162033;
+			}
+			.millecode-email-wrapper {
+				width: 100%;
+				padding: 32px 16px;
+				background: #f4f8fc;
+			}
+			.millecode-email-card {
+				max-width: 680px;
+				margin: 0 auto;
+				background: #ffffff;
+				border-radius: 24px;
+				overflow: hidden;
+				border: 1px solid rgba(0, 43, 91, 0.08);
+				box-shadow: 0 12px 32px rgba(0, 43, 91, 0.08);
+			}
+			.millecode-email-header {
+				padding: 32px;
+				background: linear-gradient(135deg, #002b5b 0%, #014887 70%, #28a745 100%);
+				color: #ffffff;
+			}
+			.millecode-email-body {
+				padding: 32px;
+			}
+			.millecode-email-paragraph {
+				margin: 0 0 16px;
+				line-height: 1.8;
+				color: #445067;
+			}
+			.millecode-email-button {
+				display: inline-block;
+				padding: 14px 24px;
+				border-radius: 999px;
+				background: #002b5b;
+				color: #ffffff !important;
+				text-decoration: none;
+				font-weight: 700;
+				margin-top: 16px;
+			}
+			.millecode-email-footer {
+				padding: 24px 32px 32px;
+				color: #6a7487;
+				font-size: 13px;
+				line-height: 1.7;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="millecode-email-wrapper">
+			<div class="millecode-email-card">
+				<div class="millecode-email-header">
+					<h1>Confirmez votre adresse e-mail</h1>
+					<p>Encore une étape pour valider votre demande chez Millecode.</p>
+				</div>
+
+				<div class="millecode-email-body">
+					<p class="millecode-email-paragraph">Bonjour
+						{{ clientName }},</p>
+
+					<p class="millecode-email-paragraph">
+						Merci pour votre message. Pour confirmer votre adresse e-mail et valider votre demande,
+												                    cliquez sur le bouton ci-dessous :
+					</p>
+
+					<p>
+						<a href="{{ confirmationUrl }}" class="millecode-email-button">Confirmer mon adresse e-mail</a>
+					</p>
+
+					<p class="millecode-email-paragraph" style="margin-top: 18px;">
+						Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :
+						<br>
+						<a href="{{ confirmationUrl }}">{{ confirmationUrl }}</a>
+					</p>
+				</div>
+
+				<div class="millecode-email-footer text-center">
+					<p>Millecode : Agence de développement web et mobile.</p>
+					<p>Email : mohamed@millecode.com</p>
+					<p>Téléphone : +253 77369958</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

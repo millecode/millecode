@@ -1,0 +1,756 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_title %}Millecode | Agence web, mobile et solutions digitales à Djibouti
+{% endblock %}
+{% block meta_description %}Agence web et mobile à Djibouti, Millecode conçoit des sites internet, applications web, applications mobiles, API, audits techniques et formations full-stack pour entreprises, institutions et porteurs de projets.
+{% endblock %}
+{% block meta_keywords %}agence web djibouti, création site web djibouti, développement application mobile djibouti, audit site web djibouti, API djibouti, formation développement web djibouti
+{% endblock %}
+{% block canonical_url %}
+	{{ app.request ? app.request.schemeAndHttpHost ~ app.request.pathInfo : 'https://millecode.com/' }}
+{% endblock %}
+{% block meta_og_image %}
+	{{ absolute_url(asset('assets/images/og/millecode-og-cover.jpg')) }}
+{% endblock %}
+
+{% block body %}
+	{% set millecode_partners = [
+        {
+            name: 'ONARS',
+            image: 'assets/images/home/onars-logo.jpeg',
+            alt: 'Logo ONARS'
+        },
+        {
+            name: 'CTID',
+            image: 'assets/images/home/ctid-logo.webp',
+            alt: 'Logo CTID'
+        },
+        {
+            name: 'École privée La Plum d\'or',
+            image: 'assets/images/home/ecole-priver-plume-dor.png',
+            alt: 'Logo logo ecole priver la plume d\'or'
+        },
+        
+        {
+            name: 'Electro-Multifix',
+            image: 'assets/images/home/electro-multifix-logo.jpg',
+            alt: 'Logo Electro-Multifix'
+        },
+        
+    ] %}
+
+	{% set millecode_values = [
+        {
+            icon: 'fa-solid fa-scale-balanced',
+            title: 'Prix juste',
+            text: 'Nous concevons des solutions réalistes, calibrées selon vos objectifs, votre budget et votre niveau de maturité digitale.'
+        },
+        {
+            icon: 'fa-solid fa-shield-heart',
+            title: 'Qualité durable',
+            text: 'Notre code est structuré, maintenable et pensé pour évoluer sans fragiliser votre activité ni vos performances.'
+        },
+        {
+            icon: 'fa-solid fa-lightbulb',
+            title: 'Innovation utile',
+            text: 'Nous ne vendons pas de complexité inutile. Chaque choix technique sert un besoin métier concret et mesurable.'
+        },
+        {
+            icon: 'fa-solid fa-people-arrows',
+            title: 'Accompagnement humain',
+            text: 'Nous restons proches de vos équipes, de la phase de cadrage jusqu’à la mise en ligne et à la prise en main.'
+        }
+    ] %}
+
+	{% set millecode_services = [
+        {
+            icon: 'fa-solid fa-laptop-code',
+            title: 'Applications web sur mesure',
+            text: 'Conception et développement d’applications web robustes pour SaaS, CRM, outils métiers, extranets et plateformes de gestion à forte valeur opérationnelle.',
+            technologies: [
+                { icon: 'fa-brands fa-symfony', label: 'Symfony' },
+                { icon: 'fa-brands fa-php', label: 'PHP' },
+                { icon: 'fa-solid fa-database', label: 'MySQL' },
+                { icon: 'fa-brands fa-bootstrap', label: 'Bootstrap' },
+                { icon: 'fa-brands fa-js', label: 'JavaScript' },
+                { icon: 'fa-solid fa-code', label: 'Twig' }
+            ]
+        },
+        {
+            icon: 'fa-solid fa-mobile-screen-button',
+            title: 'Développement mobile',
+            text: 'Création d’applications mobiles fluides et cohérentes, pensées pour l’usage réel, la performance et la synchronisation avec votre backend.',
+            technologies: [
+                { icon: 'fa-solid fa-mobile-screen-button', label: 'Flutter' },
+                { icon: 'fa-solid fa-bolt', label: 'Dart' },
+                { icon: 'fa-solid fa-fire', label: 'Firebase' },
+                { icon: 'fa-solid fa-server', label: 'API Backend' }
+            ]
+        },
+        {
+            icon: 'fa-solid fa-magnifying-glass-chart',
+            title: 'Audit de sites web',
+            text: 'Audit technique et fonctionnel pour améliorer vos performances, votre SEO, l’expérience utilisateur, l’accessibilité et la sécurité de votre site.',
+            technologies: [
+                { icon: 'fa-solid fa-gauge-high', label: 'Performance' },
+                { icon: 'fa-solid fa-chart-line', label: 'SEO technique' },
+                { icon: 'fa-solid fa-user-check', label: 'UX' },
+                { icon: 'fa-solid fa-lock', label: 'Sécurité' },
+                { icon: 'fa-solid fa-universal-access', label: 'Accessibilité' }
+            ]
+        },
+        {
+            icon: 'fa-solid fa-diagram-project',
+            title: 'API REST & GraphQL',
+            text: 'Conception d’API fiables, documentées et sécurisées pour relier vos applications, accélérer vos intégrations et structurer vos échanges de données.',
+            technologies: [
+                { icon: 'fa-brands fa-symfony', label: 'Symfony' },
+                { icon: 'fa-solid fa-layer-group', label: 'API Platform' },
+                { icon: 'fa-solid fa-key', label: 'JWT' },
+                { icon: 'fa-solid fa-database', label: 'MySQL/PostgreSQL' },
+                { icon: 'fa-solid fa-file-code', label: 'Documentation API' }
+            ]
+        },
+        {
+            icon: 'fa-solid fa-graduation-cap',
+            title: 'Formation développement web full-stack',
+            text: 'Programmes pratiques et progressifs pour apprendre à concevoir, développer, versionner et déployer de vraies applications web modernes.',
+            technologies: [
+                { icon: 'fa-brands fa-html5', label: 'HTML' },
+                { icon: 'fa-brands fa-css3-alt', label: 'CSS' },
+                { icon: 'fa-brands fa-bootstrap', label: 'Bootstrap' },
+                { icon: 'fa-brands fa-js', label: 'JavaScript' },
+                { icon: 'fa-brands fa-php', label: 'PHP' },
+                { icon: 'fa-brands fa-symfony', label: 'Symfony' },
+                { icon: 'fa-brands fa-git-alt', label: 'Git/GitHub' },
+                { icon: 'fa-solid fa-database', label: 'SQL & API REST' }
+            ]
+        },
+        {
+            icon: 'fa-solid fa-compass-drafting',
+            title: 'Conseil et cadrage digital',
+            text: 'Accompagnement stratégique pour clarifier votre besoin, choisir la bonne architecture, structurer la roadmap et sécuriser vos décisions produit.',
+            technologies: [
+                { icon: 'fa-solid fa-sitemap', label: 'Architecture' },
+                { icon: 'fa-solid fa-object-group', label: 'UX' },
+                { icon: 'fa-solid fa-road', label: 'Roadmap' },
+                { icon: 'fa-solid fa-microchip', label: 'Choix technologiques' }
+            ]
+        }
+    ] %}
+
+	{% set millecode_projects = [
+        {
+            title: 'GESNOTE',
+            start_date: 'Janvier 2025',
+            end_date: 'Juillet 2025',
+            description: 'Plateforme de gestion scolaire pensée pour centraliser les données académiques, simplifier le suivi administratif et produire des documents fiables dans un environnement clair et structuré.',
+            image: 'assets/images/projects/electro-multifix-logo.jpg',
+            alt: 'Aperçu du projet GESNOTE',
+            stack: ['Symfony', 'Twig', 'MySQL', 'Bootstrap', 'PDF métier']
+        },
+        {
+            title: 'CRM Fibre',
+            start_date: 'Septembre 2025',
+            end_date: 'Décembre 2025',
+            description: 'Outil métier de prospection terrain et de suivi commercial destiné à améliorer la collecte des données, la visibilité des opérations et la prise de décision au quotidien.',
+            image: 'assets/images/home/onars-logo.jpeg',
+            alt: 'Aperçu du projet CRM Fibre',
+            stack: ['Symfony', 'API', 'Tableaux de bord', 'UX métier']
+        }
+    ] %}
+
+	{% set millecode_testimonials = [
+        {
+            name: 'Moustapha Awaleh',
+            role: 'Fondateur, Electro-Multifix',
+            text: 'Millecode a compris notre besoin rapidement et a proposé une solution claire, élégante et rassurante. Le suivi a été sérieux du début à la fin.',
+            rating: 5
+        },
+        {
+            name: 'Amina Hassan',
+            role: 'Responsable administrative, établissement privé',
+            text: 'Nous recherchions un partenaire capable de structurer notre besoin et de livrer proprement. L’équipe a été rigoureuse, disponible et très professionnelle.',
+            rating: 5
+        },
+        {
+            name: 'Samatar Aden',
+            role: 'Responsable projet innovation',
+            text: 'Très bonne capacité d’écoute, bon niveau technique et excellent sens du concret. Les échanges ont toujours été fluides et orientés résultats.',
+            rating: 5
+        },
+        {
+            name: 'Fadumo Ibrahim',
+            role: 'Directrice pédagogique',
+            text: 'Nous avons apprécié la qualité du travail, la pédagogie et la clarté de la démarche. Le rendu est propre, utile et adapté à notre contexte.',
+            rating: 5
+        },
+        {
+            name: 'Abdourahman Ali',
+            role: 'Entrepreneur',
+            text: 'Le positionnement est sérieux, le design est propre et l’exécution inspire confiance. Millecode apporte une vraie valeur sur le fond comme sur la forme.',
+            rating: 5
+        }
+    ] %}
+
+	<section class="millecode-hero-section" id="millecode-hero">
+		<div class="container millecode-container">
+			<div class="row align-items-center g-5">
+				<div class="col-lg-6">
+					<div class="millecode-hero-content" data-millecode-reveal>
+						<span class="millecode-section-badge">
+							<i class="fa-solid fa-bolt"></i>
+							Agence web & mobile basée à Djibouti
+						</span>
+
+						<h1 class="millecode-hero-title">
+							Donnez vie à vos projets web et mobile
+						</h1>
+
+						<p class="millecode-hero-text">
+							Millecode conçoit des sites web, applications web et mobiles, CRM, plateformes SaaS, API et outils métiers sur mesure pour aider les entreprises, institutions et porteurs de projets à gagner en visibilité, en efficacité et en croissance.
+						</p>
+						<div class="millecode-hero-cta-group">
+							<a href="#millecode-solutions" class="millecode-btn millecode-btn-outline">
+								Découvrez nos services
+							</a>
+							<a href="#millecode-cta" class="millecode-btn millecode-btn-primary">
+								Contactez-nous
+							</a>
+						</div>
+
+						<div class="millecode-hero-socials">
+							<span class="millecode-hero-socials-label">Nous suivre :</span>
+							<div class="millecode-hero-socials-links">
+								<a href="#" class="millecode-social-link" aria-label="LinkedIn">
+									<i class="fa-brands fa-linkedin-in"></i>
+								</a>
+								<a href="#" class="millecode-social-link" aria-label="Facebook">
+									<i class="fa-brands fa-facebook-f"></i>
+								</a>
+								<a href="https://wa.me/25377369958" class="millecode-social-link" aria-label="WhatsApp">
+									<i class="fa-brands fa-whatsapp"></i>
+								</a>
+								<a href="#" class="millecode-social-link" aria-label="X">
+									<i class="fa-brands fa-x-twitter"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 d-none d-md-block">
+					<div class="millecode-hero-visual" data-millecode-reveal>
+						<div class="millecode-hero-mosaic">
+							<div class="millecode-hero-media millecode-hero-media-left">
+								<img src="{{ asset('assets/images/home/millecode-home-portrait.jpeg') }}" alt="Projet web Millecode" class="millecode-hero-media-image">
+							</div>
+
+
+							<div class="millecode-hero-media millecode-hero-media-bottom-right ">
+								<img src="{{ asset('assets/images/home/millecode-home-portrait2.jpeg') }}" alt="Application web ou mobile Millecode" class="millecode-hero-media-image">
+							</div>
+						</div>
+
+						<div class="millecode-floating-badge millecode-floating-badge-top">
+							<i class="fa-brands fa-symfony"></i>
+							PHP - Symfony
+							<br>
+							Javascripts - React js
+						</div>
+
+						<div class="millecode-floating-badge millecode-floating-badge-right">
+							<i class="fa-solid fa-code"></i>
+							Architecture propre
+						</div>
+
+						<div class="millecode-floating-badge millecode-floating-badge-bottom">
+							<i class="fa-solid fa-mobile-screen-button"></i>
+							Web & Mobile
+						</div>
+
+						<div class="millecode-floating-code">
+							<span>&lt;/&gt; API</span>
+							<span>UI/UX</span>
+							<span>SEO</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="millecode-trust-section">
+		<div class="container millecode-container">
+			<div class="millecode-section-heading text-center" data-millecode-reveal>
+				<span class="millecode-section-kicker">Ils nous font confiance</span>
+				<h2 class="millecode-section-title">Des partenaires, clients et projets qui renforcent notre crédibilité</h2>
+				<p class="millecode-section-text">
+					Nous intervenons avec sérieux auprès d’acteurs éducatifs, institutionnels et entrepreneuriaux
+																																																																																																																																																																																																																																																																																													                    qui ont besoin d’outils utiles, fiables et bien exécutés.
+				</p>
+			</div>
+
+			<div class="row g-4 justify-content-center">
+				{% for partner in millecode_partners %}
+					<div class="col-6 col-md-4 col-lg-2" data-millecode-reveal>
+						<article class="millecode-trust-card">
+							<img src="{{ asset(partner.image) }}" alt="{{ partner.alt }}" class="millecode-trust-logo">
+							<span class="millecode-trust-name">{{ partner.name }}</span>
+						</article>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="millecode-about-section" id="millecode-a-propos">
+		<div class="container millecode-container">
+			<div class="row align-items-center g-5">
+				<div class="col-lg-5">
+					<div class="millecode-about-image-wrap" data-millecode-reveal>
+						<img src="{{ asset('assets/images/home/millecode-about-portra.jpeg') }}" alt="Portrait de présentation Millecode" class="millecode-about-image">
+					</div>
+				</div>
+
+				<div class="col-lg-7">
+					<div class="millecode-about-content" data-millecode-reveal>
+						<span class="millecode-section-kicker">Qui sommes-nous</span>
+						<h2 class="millecode-section-title millecode-section-title-left">
+							Une agence digitale structurée pour transformer des besoins concrets en solutions solides
+						</h2>
+						<p class="millecode-section-text millecode-section-text-left">
+							Millecode est une agence web et mobile installée à Djibouti. Nous travaillons avec une
+																																																																																																																																																																																																																																																																																																																																																																																																															                            approche à la fois technique, stratégique et humaine pour concevoir des solutions utiles,
+																																																																																																																																																																																																																																																																																																																																																																																																															                            bien pensées, esthétiques et durables. Notre ambition est simple : livrer des produits
+																																																																																																																																																																																																																																																																																																																																																																																																															                            crédibles qui inspirent confiance, simplifient le travail et soutiennent la croissance.
+						</p>
+
+						<div class="row g-3">
+							{% for value in millecode_values %}
+								<div class="col-md-6">
+									<article class="millecode-value-card">
+										<div class="millecode-value-icon">
+											<i class="{{ value.icon }}"></i>
+										</div>
+										<h3 class="millecode-value-title">{{ value.title }}</h3>
+										<p class="millecode-value-text">{{ value.text }}</p>
+									</article>
+								</div>
+							{% endfor %}
+						</div>
+
+						{# <div class="mt-4">
+																																																	<a href="#millecode-cta" class="millecode-btn millecode-btn-outline">
+																																																		Voir un peu plus sur nous
+																																																	</a>
+																																																</div> #}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="millecode-solutions-section" id="millecode-solutions">
+		<div class="container millecode-container">
+			<div class="millecode-section-heading text-center" data-millecode-reveal>
+				<span class="millecode-section-kicker">Nos solutions</span>
+				<h2 class="millecode-section-title">Des expertises pensées pour la performance, l’utilité et l’image de marque</h2>
+				<p class="millecode-section-text">
+					Chaque service est conçu pour répondre à un besoin réel avec une exécution propre, une direction
+																																																																																																																																																																																																																																																																																													                    technique claire et une qualité de rendu digne d’une structure sérieuse.
+				</p>
+			</div>
+
+			<div class="row g-4">
+				{% for service in millecode_services %}
+					<div class="col-md-6 col-xl-4" data-millecode-reveal>
+						<article class="millecode-service-card h-100">
+							<div class="millecode-service-icon">
+								<i class="{{ service.icon }}"></i>
+							</div>
+
+							<h3 class="millecode-service-title">{{ service.title }}</h3>
+							<p class="millecode-service-text">{{ service.text }}</p>
+
+							<div class="millecode-service-tech-list" aria-label="Technologies utilisées">
+								{% for technology in service.technologies %}
+									<span class="millecode-service-tech-item">
+										<i class="{{ technology.icon }}"></i>
+										{{ technology.label }}
+									</span>
+								{% endfor %}
+							</div>
+
+
+						</article>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="millecode-projects-section" id="millecode-realisations">
+		<div class="container millecode-container">
+			<div class="millecode-section-heading text-center" data-millecode-reveal>
+				<span class="millecode-section-kicker">Nos dernières réalisations</span>
+				<h2 class="millecode-section-title">Des projets concrets, structurés et pensés pour l’usage réel</h2>
+				<p class="millecode-section-text">
+					Nous créons des plateformes qui allient lisibilité, performance, logique métier et qualité
+																																																																																																																																																																																																																																																																																													                    d’exécution afin d’apporter une vraie valeur sur le terrain.
+				</p>
+			</div>
+
+			<div class="millecode-project-list">
+				{% for project in millecode_projects %}
+					<article class="millecode-project-card" data-millecode-reveal>
+						<div class="row g-0 align-items-center">
+							<div class="col-lg-6">
+								<div class="millecode-project-content">
+									<span class="millecode-project-tag">Projet récent</span>
+									<h3 class="millecode-project-title">{{ project.title }}</h3>
+
+									<div class="millecode-project-dates">
+										<div class="millecode-project-date-item">
+											<span class="millecode-project-date-label">Date de début</span>
+											<span class="millecode-project-date-value">{{ project.start_date }}</span>
+										</div>
+										<div class="millecode-project-date-item">
+											<span class="millecode-project-date-label">Date de fin</span>
+											<span class="millecode-project-date-value">{{ project.end_date }}</span>
+										</div>
+									</div>
+
+									<p class="millecode-project-text">{{ project.description }}</p>
+
+									<div class="millecode-project-stack">
+										{% for item in project.stack %}
+											<span class="millecode-project-stack-item">{{ item }}</span>
+										{% endfor %}
+									</div>
+
+									<div class="mt-4">
+										<a href="#millecode-cta" class="millecode-btn millecode-btn-outline">
+											Voir le détail
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="millecode-project-image-wrap">
+									<img src="{{ asset(project.image) }}" alt="{{ project.alt }}" class="millecode-project-image">
+								</div>
+							</div>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+
+			<div class="text-center mt-5" data-millecode-reveal>
+				<a href="#millecode-cta" class="millecode-btn millecode-btn-primary">
+					Voir tous les projets
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="millecode-testimonials-section">
+		<div class="container millecode-container">
+			<div class="millecode-section-heading text-center" data-millecode-reveal>
+				<span class="millecode-section-kicker">Que disent de nous nos clients</span>
+				<h2 class="millecode-section-title">Des retours qui confirment notre exigence de qualité</h2>
+				<p class="millecode-section-text">
+					Nous attachons autant d’importance à la qualité du rendu qu’à la clarté du suivi, à l’écoute et
+																																																																																																																																																																																																																																																																																													                    à la confiance créée tout au long du projet.
+				</p>
+			</div>
+
+			<div class="millecode-testimonials-shell" data-millecode-carousel data-millecode-reveal>
+				<div class="millecode-testimonials-viewport">
+					<div class="millecode-testimonials-track" data-millecode-carousel-track>
+						{% for testimonial in millecode_testimonials %}
+							<article class="millecode-testimonial-card" data-millecode-carousel-item>
+								<div class="millecode-testimonial-rating" aria-label="{{ testimonial.rating }} sur 5">
+									{% for i in 1..testimonial.rating %}
+										<i class="fa-solid fa-star"></i>
+									{% endfor %}
+								</div>
+
+								<p class="millecode-testimonial-text">“{{ testimonial.text }}”</p>
+
+								<div class="millecode-testimonial-author">
+									<div class="millecode-testimonial-avatar">
+										{{ testimonial.name|slice(0, 1) }}
+									</div>
+									<div>
+										<h3 class="millecode-testimonial-name">{{ testimonial.name }}</h3>
+										<p class="millecode-testimonial-role">{{ testimonial.role }}</p>
+									</div>
+								</div>
+							</article>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="millecode-testimonials-controls">
+					<button type="button" class="millecode-testimonials-control" aria-label="Avis précédent" data-millecode-carousel-prev>
+						<i class="fa-solid fa-arrow-left"></i>
+					</button>
+					<button type="button" class="millecode-testimonials-control" aria-label="Avis suivant" data-millecode-carousel-next>
+						<i class="fa-solid fa-arrow-right"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% set millecodeContactModalList = app.flashes('millecode_contact_modal') %}
+	{% set millecodeContactModal = millecodeContactModalList|last %}
+
+	<section class="millecode-contact-section" id="millecode-contact">
+		<div class="container millecode-container">
+			<div class="millecode-section-heading text-center" data-millecode-reveal>
+				<span class="millecode-section-kicker">Contactez-nous</span>
+				<h2 class="millecode-section-title">Parlons de votre projet avec sérieux et clarté</h2>
+				<p class="millecode-section-text">
+					Un besoin en site web, CRM, SaaS, application métier, API ou accompagnement technique ?
+																														                Écrivez-nous. Millecode vous répond avec une approche claire, structurée et orientée résultats.
+				</p>
+			</div>
+
+			<div class="row g-4 align-items-stretch">
+				<div class="col-md-6">
+					<div class="row g-4 h-100">
+						<div class="col-md-12" data-millecode-reveal>
+							<article class="millecode-contact-card millecode-contact-card-email">
+								<div class="millecode-contact-card-icon">
+									<i class="fa-solid fa-envelope"></i>
+								</div>
+								<div class="millecode-contact-card-content">
+									<span class="millecode-contact-card-kicker">Adresse e-mail</span>
+									<h3 class="millecode-contact-card-title">Écrivez-nous directement</h3>
+									<a href="mailto:mohamed@millecode.com" class="millecode-contact-card-link">
+										mohamed@millecode.com
+									</a>
+									<p class="millecode-contact-card-text">
+										Pour toute demande de devis, d’audit, de développement web, mobile ou d’accompagnement digital.
+									</p>
+								</div>
+							</article>
+						</div>
+
+						<div class="col-md-12" data-millecode-reveal>
+							<article class="millecode-contact-card millecode-contact-card-location">
+								<div class="millecode-contact-card-icon">
+									<i class="fa-solid fa-location-dot"></i>
+								</div>
+								<div class="millecode-contact-card-content">
+									<span class="millecode-contact-card-kicker">Adresse</span>
+									<h3 class="millecode-contact-card-title">Djibouti Quartier 7 près de l'UNFD</h3>
+									<p class="millecode-contact-card-link millecode-contact-card-link-static">
+										République de Djibouti
+									</p>
+									<p class="millecode-contact-card-text">
+										Nous accompagnons les entreprises, institutions et porteurs de projets au niveau local et à distance.
+									</p>
+								</div>
+							</article>
+						</div>
+
+						<div class="col-md-12" data-millecode-reveal>
+							<article class="millecode-contact-card millecode-contact-card-phone">
+								<div class="millecode-contact-card-icon">
+									<i class="fa-solid fa-phone-volume"></i>
+								</div>
+								<div class="millecode-contact-card-content">
+									<span class="millecode-contact-card-kicker">Téléphone</span>
+									<h3 class="millecode-contact-card-title">Parlons de vive voix</h3>
+									<a href="tel:+25377369958" class="millecode-contact-card-link">
+										+253 77 36 99 58
+									</a>
+									<p class="millecode-contact-card-text">
+										Disponible pour échanger sur votre besoin, affiner votre cadrage ou lancer votre projet.
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6" data-millecode-reveal>
+					<div class="millecode-contact-form-card">
+						<div class="millecode-contact-form-head">
+							<span class="millecode-contact-form-kicker">Formulaire de contact</span>
+							<h3 class="millecode-contact-form-title">Décrivez votre besoin</h3>
+							<p class="millecode-contact-form-text">
+								Remplissez le formulaire ci-dessous. Votre demande sera enregistrée et transmise à Millecode.
+							</p>
+						</div>
+
+						{{ form_start(contactForm, {
+                        action: path('app_home'),
+                        method: 'POST',
+                        attr: {
+                            class: 'millecode-contact-form',
+                            id: 'millecode-contact-form',
+                            autocomplete: 'on'
+                        }
+                    }) }}
+
+						{# Champs anti-spam hors namespace Symfony #}
+						<input type="text" name="_millecode_hp" class="millecode-honeypot" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+						<input type="hidden" name="_millecode_started_at" value="{{ millecode_contact_started_at }}">
+
+						{% if not contactForm.vars.valid and contactForm.vars.submitted %}
+							<div class="millecode-contact-form-alert millecode-contact-form-alert-danger">
+								<i class="fa-solid fa-circle-exclamation"></i>
+								<span>Veuillez corriger les champs signalés avant de renvoyer votre message.</span>
+							</div>
+						{% endif %}
+
+						<div class="row g-3">
+							<div class="col-md-6">
+								<div class="millecode-contact-field">
+									{{ form_label(contactForm.nom, null, {
+                                        label_attr: { class: 'millecode-contact-label' }
+                                    }) }}
+									{{ form_widget(contactForm.nom, {
+                                        attr: {
+                                            class: 'millecode-contact-input',
+                                            placeholder: 'Votre nom complet'
+                                        }
+                                    }) }}
+									<div class="millecode-contact-errors">
+										{{ form_errors(contactForm.nom) }}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="millecode-contact-field">
+									{{ form_label(contactForm.email, null, {
+                                        label_attr: { class: 'millecode-contact-label' }
+                                    }) }}
+									{{ form_widget(contactForm.email, {
+                                        attr: {
+                                            class: 'millecode-contact-input',
+                                            placeholder: 'votre@email.com'
+                                        }
+                                    }) }}
+									<div class="millecode-contact-errors">
+										{{ form_errors(contactForm.email) }}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="millecode-contact-field">
+									{{ form_label(contactForm.phone, null, {
+                                        label_attr: { class: 'millecode-contact-label' }
+                                    }) }}
+									{{ form_widget(contactForm.phone, {
+                                        attr: {
+                                            class: 'millecode-contact-input',
+                                            placeholder: '+253 XX XX XX XX'
+                                        }
+                                    }) }}
+									<div class="millecode-contact-errors">
+										{{ form_errors(contactForm.phone) }}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="millecode-contact-field">
+									{{ form_label(contactForm.sujet, null, {
+                                        label_attr: { class: 'millecode-contact-label' }
+                                    }) }}
+									{{ form_widget(contactForm.sujet, {
+                                        attr: {
+                                            class: 'millecode-contact-input',
+                                            placeholder: 'Objet de votre demande'
+                                        }
+                                    }) }}
+									<div class="millecode-contact-errors">
+										{{ form_errors(contactForm.sujet) }}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12">
+								<div class="millecode-contact-field">
+									{{ form_label(contactForm.message, null, {
+                                        label_attr: { class: 'millecode-contact-label' }
+                                    }) }}
+									{{ form_widget(contactForm.message, {
+                                        attr: {
+                                            class: 'millecode-contact-textarea',
+                                            placeholder: 'Décrivez votre besoin, votre contexte, vos objectifs et votre délai.'
+                                        }
+                                    }) }}
+									<div class="millecode-contact-errors">
+										{{ form_errors(contactForm.message) }}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{{ form_rest(contactForm) }}
+
+						<div class="millecode-contact-form-footer">
+							<p class="millecode-contact-form-note">
+								En envoyant ce formulaire, vous acceptez que Millecode traite votre demande pour vous recontacter.
+							</p>
+
+							<button type="submit" class="millecode-btn millecode-btn-primary millecode-contact-submit">
+								<i class="fa-solid fa-paper-plane"></i>
+								Envoyer ma demande
+							</button>
+						</div>
+
+						{{ form_end(contactForm) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% if millecodeContactModal %}
+		<div class="modal fade millecode-contact-modal" id="millecodeContactModal" tabindex="-1" aria-labelledby="millecodeContactModalLabel" aria-hidden="true" data-millecode-contact-modal="true" data-millecode-contact-modal-autoshow="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content millecode-contact-modal-content">
+					<div class="millecode-contact-modal-header">
+						<div class="millecode-contact-modal-icon millecode-contact-modal-icon-{{ millecodeContactModal.type|default('success') }}">
+							{% if millecodeContactModal.type|default('success') == 'success' %}
+								<i class="fa-solid fa-circle-check"></i>
+							{% elseif millecodeContactModal.type|default('success') == 'warning' %}
+								<i class="fa-solid fa-triangle-exclamation"></i>
+							{% else %}
+								<i class="fa-solid fa-circle-xmark"></i>
+							{% endif %}
+						</div>
+
+						<button type="button" class="btn-close millecode-contact-modal-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+					</div>
+
+					<div class="millecode-contact-modal-body">
+						<span class="millecode-contact-modal-kicker">Formulaire de contact</span>
+						<h3 class="millecode-contact-modal-title" id="millecodeContactModalLabel">
+							{{ millecodeContactModal.title }}
+						</h3>
+						<p class="millecode-contact-modal-text">
+							{{ millecodeContactModal.message }}
+						</p>
+					</div>
+
+					<div class="millecode-contact-modal-footer">
+						<button type="button" class="millecode-btn millecode-btn-primary" data-bs-dismiss="modal">
+							Fermer
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

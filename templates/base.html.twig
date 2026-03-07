@@ -1,17 +1,324 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr">
+	<head>
+		{% set millecode_meta_title = block('meta_title')|trim ?: 'Millecode | Agence web et mobile à Djibouti' %}
+		{% set millecode_meta_description = block('meta_description')|trim ?: 'Millecode est une agence web et mobile basée à Djibouti. Nous concevons des sites web, applications web, applications mobiles, API, solutions métiers, audits techniques et formations full-stack.' %}
+		{% set millecode_meta_keywords = block('meta_keywords')|trim ?: 'agence web djibouti, développement web djibouti, création site web djibouti, développement application mobile djibouti, développeur web djibouti, agence développement web et mobile djibouti' %}
+		{% set millecode_canonical_url = block('canonical_url')|trim ?: (app.request ? app.request.schemeAndHttpHost ~ app.request.pathInfo : 'https://millecode.com/') %}
+		{% set millecode_og_image = block('meta_og_image')|trim ?: absolute_url(asset('assets/images/branding/millecode-logo.jpg')) %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ millecode_meta_title }}</title>
+		<meta name="description" content="{{ millecode_meta_description }}">
+		<meta name="robots" content="{% block meta_robots %}index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1{% endblock %}">
+		<meta name="author" content="Millecode">
+		<meta name="keywords" content="{{ millecode_meta_keywords }}">
+		<meta name="theme-color" content="#002b5b">
+		<link rel="canonical" href="{{ millecode_canonical_url }}">
+
+		<meta property="og:type" content="website">
+		<meta property="og:locale" content="fr_FR">
+		<meta property="og:site_name" content="Millecode">
+		<meta property="og:title" content="{{ millecode_meta_title }}">
+		<meta property="og:description" content="{{ millecode_meta_description }}">
+		<meta property="og:url" content="{{ millecode_canonical_url }}">
+		<meta property="og:image" content="{{ millecode_og_image }}">
+		<meta property="og:image:alt" content="Millecode, agence web et mobile à Djibouti">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="{{ millecode_meta_title }}">
+		<meta name="twitter:description" content="{{ millecode_meta_description }}">
+		<meta name="twitter:image" content="{{ millecode_og_image }}">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/branding/millecode-icone.png') }}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/branding/millecode-icone.png') }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/branding/millecode-icone.png') }}">
+		<link rel="manifest" href="{{ asset('site.webmanifest') }}">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+		<link rel="stylesheet" href="{{ asset('assets/css/millecode.css') }}"> {% block stylesheets %}{% endblock %}
+
+		<script type="application/ld+json">
+			{
+																																																															            "@context": "https://schema.org",
+																																																															            "@graph": [
+																																																															                {
+																																																															                    "@type": "ProfessionalService",
+																																																															                    "@id": "https://millecode.com/#organization",
+																																																															                    "name": "Millecode",
+																																																															                    "url": "https://millecode.com/",
+																																																															                    "logo": "{{ absolute_url(asset('assets/images/branding/millecode-logo-mark.png')) }}",
+																																																															                    "image": "{{ millecode_og_image }}",
+																																																															                    "description": "{{ millecode_meta_description|e('js') }}",
+																																																															                    "email": "mohamed@millecode.com",
+																																																															                    "telephone": "+25377369958",
+																																																															                    "priceRange": "$$",
+																																																															                    "areaServed": [
+																																																															                        {
+																																																															                            "@type": "Country",
+																																																															                            "name": "Djibouti"
+																																																															                        },
+																																																															                        {
+																																																															                            "@type": "Place",
+																																																															                            "name": "Afrique de l'Est"
+																																																															                        }
+																																																															                    ],
+																																																															                    "address": {
+																																																															                        "@type": "PostalAddress",
+																																																															                        "addressLocality": "Djibouti",
+																																																															                        "addressCountry": "DJ"
+																																																															                    },
+																																																															                    "foundingLocation": {
+																																																															                        "@type": "Place",
+																																																															                        "name": "Djibouti"
+																																																															                    },
+																																																															                    "knowsAbout": [
+																																																															                        "Développement web",
+																																																															                        "Développement mobile",
+																																																															                        "Création de sites web",
+																																																															                        "Applications métiers",
+																																																															                        "API REST",
+																																																															                        "GraphQL",
+																																																															                        "Audit technique",
+																																																															                        "Formation développement web full-stack"
+																																																															                    ]
+																																																															                },
+																																																															                {
+																																																															                    "@type": "WebSite",
+																																																															                    "@id": "https://millecode.com/#website",
+																																																															                    "url": "https://millecode.com/",
+																																																															                    "name": "Millecode",
+																																																															                    "inLanguage": "fr",
+																																																															                    "publisher": {
+																																																															                        "@id": "https://millecode.com/#organization"
+																																																															                    }
+																																																															                },
+																																																															                {
+																																																															                    "@type": "WebPage",
+																																																															                    "@id": "{{ millecode_canonical_url|e('js') }}#webpage",
+																																																															                    "url": "{{ millecode_canonical_url|e('js') }}",
+																																																															                    "name": "{{ millecode_meta_title|e('js') }}",
+																																																															                    "description": "{{ millecode_meta_description|e('js') }}",
+																																																															                    "isPartOf": {
+																																																															                        "@id": "https://millecode.com/#website"
+																																																															                    },
+																																																															                    "about": {
+																																																															                        "@id": "https://millecode.com/#organization"
+																																																															                    },
+																																																															                    "inLanguage": "fr"
+																																																															                }
+																																																															            ]
+																																																															        }
+		</script>
+
+
+	</head>
+	<body class="{% block body_class %}millecode-body{% endblock %}">
+		<header class="millecode-site-header">
+			<nav class="navbar millecode-navbar" data-millecode-navbar>
+				<div class="container millecode-container">
+					<a class="navbar-brand millecode-navbar-brand" href="{{ app.request ? app.request.baseUrl ~ '/' : '/' }}" aria-label="Accueil Millecode">
+						<img src="{{ asset('assets/images/branding/millecode-logo.jpg') }}" alt="Logo Millecode" class="millecode-navbar-logo">
+
+					</a>
+
+					<div class="millecode-navbar-desktop d-none d-xl-flex align-items-center">
+						<ul class="millecode-navbar-menu list-unstyled mb-0">
+							<li>
+								<a href="#millecode-hero" class="millecode-nav-link">Accueil</a>
+							</li>
+							<li>
+								<a href="#millecode-a-propos" class="millecode-nav-link">À propos</a>
+							</li>
+							<li>
+								<a href="#millecode-solutions" class="millecode-nav-link">Nos produits</a>
+							</li>
+							<li>
+								<a href="#millecode-realisations" class="millecode-nav-link">Nos réalisations</a>
+							</li>
+							<li>
+								<a href="#millecode-cta" class="millecode-btn millecode-btn-primary ">
+									Contactez-nous
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<button class="millecode-navbar-toggler d-xl-none" type="button" aria-label="Ouvrir le menu" aria-controls="millecode-mobile-drawer" aria-expanded="false" data-millecode-drawer-open>
+						<span class="millecode-navbar-toggler-line"></span>
+						<span class="millecode-navbar-toggler-line"></span>
+						<span class="millecode-navbar-toggler-line"></span>
+					</button>
+				</div>
+			</nav>
+
+			<div class="millecode-navbar-backdrop" data-millecode-drawer-backdrop></div>
+
+			<aside id="millecode-mobile-drawer" class="millecode-navbar-drawer d-xl-none" aria-hidden="true" data-millecode-drawer>
+				<div class="millecode-navbar-drawer-header">
+					<a class="millecode-navbar-brand" href="{{ app.request ? app.request.baseUrl ~ '/' : '/' }}" aria-label="Accueil Millecode">
+						<img src="{{ asset('assets/images/branding/millecode-logo.jpg') }}" alt="Logo Millecode" class="millecode-navbar-logo">
+
+					</a>
+
+					<button class="millecode-navbar-drawer-close" type="button" aria-label="Fermer le menu" data-millecode-drawer-close>
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+
+				<div class="millecode-navbar-drawer-body">
+					<ul class="millecode-navbar-drawer-menu list-unstyled mb-0">
+						<li>
+							<a href="#millecode-hero" class="millecode-nav-link" data-millecode-drawer-link>Accueil</a>
+						</li>
+						<li>
+							<a href="#millecode-a-propos" class="millecode-nav-link" data-millecode-drawer-link>À propos</a>
+						</li>
+						<li>
+							<a href="#millecode-solutions" class="millecode-nav-link" data-millecode-drawer-link>Nos produits</a>
+						</li>
+						<li>
+							<a href="#millecode-realisations" class="millecode-nav-link" data-millecode-drawer-link>Nos réalisations</a>
+						</li>
+						<li>
+							<a href="#millecode-cta" class="millecode-btn millecode-btn-primary millecode-btn-mobile-nav" data-millecode-drawer-link>
+								Contactez-nous
+							</a>
+						</li>
+					</ul>
+
+					<div class="millecode-navbar-drawer-contact">
+						<p class="millecode-navbar-drawer-contact-title">Agence web & mobile à Djibouti</p>
+						<a href="tel:+25377369958" class="millecode-navbar-drawer-contact-link">+253 77 36 99 58</a>
+						<a href="mailto:mohamed@millecode.com" class="millecode-navbar-drawer-contact-link">mohamed@millecode.com</a>
+					</div>
+				</div>
+			</aside>
+		</header>
+
+		<main class="millecode-main-content">
+			<section class="millecode-page-shell"> {% block body %}{% endblock %}
+				</section>
+			</main>
+
+			<footer class="millecode-footer" id="millecode-contact-footer">
+				<div class="container millecode-container">
+					<div class="millecode-footer-top">
+						<div class="row g-4 g-lg-5">
+							<div class="col-lg-4">
+								<div class="millecode-footer-branding">
+									<a class="millecode-footer-brand" href="{{ app.request ? app.request.baseUrl ~ '/' : '/' }}" aria-label="Accueil Millecode">
+										<img src="{{ asset('assets/images/branding/millecode-logo-light.svg') }}" alt="Logo Millecode" class="millecode-footer-logo">
+										<span class="millecode-footer-brand-text">Millecode</span>
+									</a>
+									<p class="millecode-footer-description">
+										Millecode accompagne les entreprises, institutions et porteurs de projets à Djibouti
+																																																																																																																																																																																																																		                                dans la conception de solutions web et mobiles solides, utiles et durables.
+									</p>
+
+									<div class="millecode-footer-socials">
+										<a href="#" class="millecode-footer-social-link" aria-label="LinkedIn">
+											<i class="fa-brands fa-linkedin-in"></i>
+										</a>
+										<a href="#" class="millecode-footer-social-link" aria-label="Facebook">
+											<i class="fa-brands fa-facebook-f"></i>
+										</a>
+										<a href="https://wa.me/25377369958" class="millecode-footer-social-link" aria-label="WhatsApp">
+											<i class="fa-brands fa-whatsapp"></i>
+										</a>
+										<a href="#" class="millecode-footer-social-link" aria-label="X">
+											<i class="fa-brands fa-x-twitter"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-6 col-lg-2">
+								<h3 class="millecode-footer-title">Liens utiles</h3>
+								<ul class="millecode-footer-links list-unstyled mb-0">
+									<li>
+										<a href="#millecode-hero" class="millecode-footer-link">Accueil</a>
+									</li>
+									<li>
+										<a href="#millecode-a-propos" class="millecode-footer-link">À propos</a>
+									</li>
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">Solutions</a>
+									</li>
+									<li>
+										<a href="#millecode-realisations" class="millecode-footer-link">Réalisations</a>
+									</li>
+									<li>
+										<a href="#millecode-cta" class="millecode-footer-link">Contact</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-lg-3">
+								<h3 class="millecode-footer-title">Services</h3>
+								<ul class="millecode-footer-links list-unstyled mb-0">
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">Applications web</a>
+									</li>
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">Développement mobile</a>
+									</li>
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">Audit web</a>
+									</li>
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">API REST & GraphQL</a>
+									</li>
+									<li>
+										<a href="#millecode-solutions" class="millecode-footer-link">Formation full-stack</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-lg-3">
+								<h3 class="millecode-footer-title">Coordonnées</h3>
+								<ul class="millecode-footer-contact list-unstyled mb-0">
+									<li>
+										<span class="millecode-footer-contact-label">Téléphone</span>
+										<a href="tel:+25377369958" class="millecode-footer-link">+253 77 36 99 58</a>
+									</li>
+									<li>
+										<span class="millecode-footer-contact-label">E-mail</span>
+										<a href="mailto:mohamed@millecode.com" class="millecode-footer-link">mohamed@millecode.com</a>
+									</li>
+									<li>
+										<span class="millecode-footer-contact-label">Localisation</span>
+										<span class="millecode-footer-contact-text">Djibouti Quartier 7 près de l'UNFD</span>
+									</li>
+									<li>
+										<span class="millecode-footer-contact-label">Disponibilité</span>
+										<span class="millecode-footer-contact-text">Lun. - Sam. | 08:00 - 18:00</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="millecode-footer-bottom">
+						<p class="millecode-footer-copyright">
+							©
+							{{ "now"|date("Y") }}
+							Millecode. Tous droits réservés.
+						</p>
+						<p class="millecode-footer-credit">
+							Agence de développement web et mobile.
+						</p>
+					</div>
+				</div>
+			</footer>
+
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+			<script src="{{ asset('assets/js/millecode.js') }}"></script>
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>

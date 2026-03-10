@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ millecode_meta_title }}</title>
 		<meta name="description" content="{{ millecode_meta_description }}">
-		<meta name="robots" content="{% block meta_robots %}index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1{% endblock %}">
+		<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 		<meta name="author" content="Millecode">
 		<meta name="keywords" content="{{ millecode_meta_keywords }}">
 		<meta name="theme-color" content="#002b5b">
@@ -45,75 +45,75 @@
 
 		<script type="application/ld+json">
 			{
-																																																																																													            "@context": "https://schema.org",
-																																																																																													            "@graph": [
-																																																																																													                {
-																																																																																													                    "@type": "ProfessionalService",
-																																																																																													                    "@id": "https://millecode.com/#organization",
-																																																																																													                    "name": "Millecode",
-																																																																																													                    "url": "https://millecode.com/",
-																																																																																													                    "logo": "{{ absolute_url(asset('assets/images/branding/millecode-logo-mark.png')) }}",
-																																																																																													                    "image": "{{ millecode_og_image }}",
-																																																																																													                    "description": "{{ millecode_meta_description|e('js') }}",
-																																																																																													                    "email": "mohamed@millecode.com",
-																																																																																													                    "telephone": "+25377369958",
-																																																																																													                    "priceRange": "$$",
-																																																																																													                    "areaServed": [
-																																																																																													                        {
-																																																																																													                            "@type": "Country",
-																																																																																													                            "name": "Djibouti"
-																																																																																													                        },
-																																																																																													                        {
-																																																																																													                            "@type": "Place",
-																																																																																													                            "name": "Afrique de l'Est"
-																																																																																													                        }
-																																																																																													                    ],
-																																																																																													                    "address": {
-																																																																																													                        "@type": "PostalAddress",
-																																																																																													                        "addressLocality": "Djibouti",
-																																																																																													                        "addressCountry": "DJ"
-																																																																																													                    },
-																																																																																													                    "foundingLocation": {
-																																																																																													                        "@type": "Place",
-																																																																																													                        "name": "Djibouti"
-																																																																																													                    },
-																																																																																													                    "knowsAbout": [
-																																																																																													                        "Développement web",
-																																																																																													                        "Développement mobile",
-																																																																																													                        "Création de sites web",
-																																																																																													                        "Applications métiers",
-																																																																																													                        "API REST",
-																																																																																													                        "GraphQL",
-																																																																																													                        "Audit technique",
-																																																																																													                        "Formation développement web full-stack"
-																																																																																													                    ]
-																																																																																													                },
-																																																																																													                {
-																																																																																													                    "@type": "WebSite",
-																																																																																													                    "@id": "https://millecode.com/#website",
-																																																																																													                    "url": "https://millecode.com/",
-																																																																																													                    "name": "Millecode",
-																																																																																													                    "inLanguage": "fr",
-																																																																																													                    "publisher": {
-																																																																																													                        "@id": "https://millecode.com/#organization"
-																																																																																													                    }
-																																																																																													                },
-																																																																																													                {
-																																																																																													                    "@type": "WebPage",
-																																																																																													                    "@id": "{{ millecode_canonical_url|e('js') }}#webpage",
-																																																																																													                    "url": "{{ millecode_canonical_url|e('js') }}",
-																																																																																													                    "name": "{{ millecode_meta_title|e('js') }}",
-																																																																																													                    "description": "{{ millecode_meta_description|e('js') }}",
-																																																																																													                    "isPartOf": {
-																																																																																													                        "@id": "https://millecode.com/#website"
-																																																																																													                    },
-																																																																																													                    "about": {
-																																																																																													                        "@id": "https://millecode.com/#organization"
-																																																																																													                    },
-																																																																																													                    "inLanguage": "fr"
-																																																																																													                }
-																																																																																													            ]
-																																																																																													        }
+																																																																																																            "@context": "https://schema.org",
+																																																																																																            "@graph": [
+																																																																																																                {
+																																																																																																                    "@type": "ProfessionalService",
+																																																																																																                    "@id": "https://millecode.com/#organization",
+																																																																																																                    "name": "Millecode",
+																																																																																																                    "url": "https://millecode.com/",
+																																																																																																                    "logo": "{{ absolute_url(asset('assets/images/branding/millecode-logo-mark.png')) }}",
+																																																																																																                    "image": "{{ millecode_og_image }}",
+																																																																																																                    "description": "{{ millecode_meta_description|e('js') }}",
+																																																																																																                    "email": "mohamed@millecode.com",
+																																																																																																                    "telephone": "+25377369958",
+																																																																																																                    "priceRange": "$$",
+																																																																																																                    "areaServed": [
+																																																																																																                        {
+																																																																																																                            "@type": "Country",
+																																																																																																                            "name": "Djibouti"
+																																																																																																                        },
+																																																																																																                        {
+																																																																																																                            "@type": "Place",
+																																																																																																                            "name": "Afrique de l'Est"
+																																																																																																                        }
+																																																																																																                    ],
+																																																																																																                    "address": {
+																																																																																																                        "@type": "PostalAddress",
+																																																																																																                        "addressLocality": "Djibouti",
+																																																																																																                        "addressCountry": "DJ"
+																																																																																																                    },
+																																																																																																                    "foundingLocation": {
+																																																																																																                        "@type": "Place",
+																																																																																																                        "name": "Djibouti"
+																																																																																																                    },
+																																																																																																                    "knowsAbout": [
+																																																																																																                        "Développement web",
+																																																																																																                        "Développement mobile",
+																																																																																																                        "Création de sites web",
+																																																																																																                        "Applications métiers",
+																																																																																																                        "API REST",
+																																																																																																                        "GraphQL",
+																																																																																																                        "Audit technique",
+																																																																																																                        "Formation développement web full-stack"
+																																																																																																                    ]
+																																																																																																                },
+																																																																																																                {
+																																																																																																                    "@type": "WebSite",
+																																																																																																                    "@id": "https://millecode.com/#website",
+																																																																																																                    "url": "https://millecode.com/",
+																																																																																																                    "name": "Millecode",
+																																																																																																                    "inLanguage": "fr",
+																																																																																																                    "publisher": {
+																																																																																																                        "@id": "https://millecode.com/#organization"
+																																																																																																                    }
+																																																																																																                },
+																																																																																																                {
+																																																																																																                    "@type": "WebPage",
+																																																																																																                    "@id": "{{ millecode_canonical_url|e('js') }}#webpage",
+																																																																																																                    "url": "{{ millecode_canonical_url|e('js') }}",
+																																																																																																                    "name": "{{ millecode_meta_title|e('js') }}",
+																																																																																																                    "description": "{{ millecode_meta_description|e('js') }}",
+																																																																																																                    "isPartOf": {
+																																																																																																                        "@id": "https://millecode.com/#website"
+																																																																																																                    },
+																																																																																																                    "about": {
+																																																																																																                        "@id": "https://millecode.com/#organization"
+																																																																																																                    },
+																																																																																																                    "inLanguage": "fr"
+																																																																																																                }
+																																																																																																            ]
+																																																																																																        }
 		</script>
 
 
@@ -216,7 +216,7 @@
 
 									<p class="millecode-footer-description">
 										Millecode accompagne les entreprises, institutions et porteurs de projets à Djibouti
-																																																																																																																																																																																																																																																																																																																						                                dans la conception de solutions web et mobiles solides, utiles et durables.
+																																																																																																																																																																																																																																																																																																																																                                dans la conception de solutions web et mobiles solides, utiles et durables.
 									</p>
 
 									<div class="millecode-footer-socials">

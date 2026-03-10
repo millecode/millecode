@@ -81,7 +81,7 @@ final class HomeController extends AbstractController
                 }
 
                 try {
-                    $contact->setCreatedAt(new DateTimeImmutable());
+                    $contact->setCreatedAt(new DateTimeImmutable('now', new \DateTimeZone('Africa/Djibouti')));
                     $contact->setStatus(false);
                     $contact->setConfirmationToken(bin2hex(random_bytes(32)));
 
@@ -149,7 +149,7 @@ final class HomeController extends AbstractController
         }
 
         $contact->setStatus(true);
-        $contact->setConfirmationToken(null);
+        $contact->setConfirmationToken("C'est confirmer");
 
         $entityManager->flush();
 

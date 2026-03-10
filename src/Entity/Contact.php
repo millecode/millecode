@@ -132,7 +132,7 @@ class Contact
         return $this->confirmation_token;
     }
 
-    public function setConfirmationToken(?string $confirmation_token): static
+    public function setConfirmationToken(string $confirmation_token): static
     {
         $this->confirmation_token = $confirmation_token;
 

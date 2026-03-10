@@ -36,6 +36,11 @@
             image: 'assets/images/home/electro-multifix-logo.jpg',
             alt: 'Logo Electro-Multifix'
         },
+				{
+            name: 'Futura Solutions Partners',
+            image: 'assets/images/home/futura.jpeg',
+            alt: 'Logo Futura Solutions'
+        }
         
     ] %}
 
@@ -73,7 +78,8 @@
                 { icon: 'fa-solid fa-database', label: 'MySQL' },
                 { icon: 'fa-brands fa-bootstrap', label: 'Bootstrap' },
                 { icon: 'fa-brands fa-js', label: 'JavaScript' },
-                { icon: 'fa-solid fa-code', label: 'Twig' }
+                { icon: 'fa-solid fa-code', label: 'Twig' },
+                { icon: 'fa-brands fa-react', label: 'React js' }
             ]
         },
         {
@@ -139,58 +145,35 @@
         }
     ] %}
 
-	{% set millecode_projects = [
-        {
-            title: 'GESNOTE',
-            start_date: 'Janvier 2025',
-            end_date: 'Juillet 2025',
-            description: 'Plateforme de gestion scolaire pensée pour centraliser les données académiques, simplifier le suivi administratif et produire des documents fiables dans un environnement clair et structuré.',
-            image: 'assets/images/projects/electro-multifix-logo.jpg',
-            alt: 'Aperçu du projet GESNOTE',
-            stack: ['Symfony', 'Twig', 'MySQL', 'Bootstrap', 'PDF métier']
-        },
-        {
-            title: 'CRM Fibre',
-            start_date: 'Septembre 2025',
-            end_date: 'Décembre 2025',
-            description: 'Outil métier de prospection terrain et de suivi commercial destiné à améliorer la collecte des données, la visibilité des opérations et la prise de décision au quotidien.',
-            image: 'assets/images/home/onars-logo.jpeg',
-            alt: 'Aperçu du projet CRM Fibre',
-            stack: ['Symfony', 'API', 'Tableaux de bord', 'UX métier']
-        }
-    ] %}
 
 	{% set millecode_testimonials = [
+				{
+            name: 'Abdirahman Mohamed',
+            role: 'Fondateur et CEO de TransporConnect',
+            text: 'Le projet n\'a pas encore pris fin, mais j\'ai grandement apprécié les trois mois de travail passés avec Mohamed. J\'ai particulièrement aimé son esprit et sa prévoyance mentale qui anticipent les problèmes potentiels sur chaque option de la plateforme. Il a ajouté de manière proactive des fonctionnalités essentielles, démontrant son professionnalisme dans son travail. En résumé, Mohamed est un collaborateur sympathique, travailleur et sérieux.',
+            rating: 5,
+						lien:'https://www.linkedin.com/services/page/3167b7322b9b3baa53/',
+						icone: "assets/images/avis/icone_transporConnect.jpeg"
+        },
         {
             name: 'Moustapha Awaleh',
             role: 'Fondateur, Electro-Multifix',
-            text: 'Millecode a compris notre besoin rapidement et a proposé une solution claire, élégante et rassurante. Le suivi a été sérieux du début à la fin.',
-            rating: 5
+            text: 'Nous avons eu le plaisir de collaborer avec mohamed abdillahi en tant que développeur pour le start-up Electro-Multifix, et son travail à largement dépassé nos attentes. son expertise technique et son approche innovante ont grandement contribué à l\'optimisation de nos services. nous tenons à exprimer notre sincère gratitude à mohamed abdillahi pour le travail réalisé chez Electro-multifix.',
+            rating: 4,
+						lien:'https://www.linkedin.com/services/page/3167b7322b9b3baa53/',
+						icone: "assets/images/avis/icone_electro.jpg"
+
         },
-        {
-            name: 'Amina Hassan',
-            role: 'Responsable administrative, établissement privé',
-            text: 'Nous recherchions un partenaire capable de structurer notre besoin et de livrer proprement. L’équipe a été rigoureuse, disponible et très professionnelle.',
-            rating: 5
-        },
-        {
-            name: 'Samatar Aden',
-            role: 'Responsable projet innovation',
-            text: 'Très bonne capacité d’écoute, bon niveau technique et excellent sens du concret. Les échanges ont toujours été fluides et orientés résultats.',
-            rating: 5
-        },
-        {
-            name: 'Fadumo Ibrahim',
-            role: 'Directrice pédagogique',
-            text: 'Nous avons apprécié la qualité du travail, la pédagogie et la clarté de la démarche. Le rendu est propre, utile et adapté à notre contexte.',
-            rating: 5
-        },
-        {
-            name: 'Abdourahman Ali',
-            role: 'Entrepreneur',
-            text: 'Le positionnement est sérieux, le design est propre et l’exécution inspire confiance. Millecode apporte une vraie valeur sur le fond comme sur la forme.',
-            rating: 5
+				{
+            name: 'Houssein Osman',
+            role: 'Procurement & Supply Chain Specialist | Social Entrepreneur & Project Manager',
+            text: 'Notre collaboration avec Mohamed sur le projet Futura Solutions Partners a été très satisfaisante. Nous avons particulièrement apprécié sa rigueur, sa capacité à comprendre rapidement nos besoins et son sens du détail dans la conception de la plateforme. Il a su proposer des solutions pertinentes, modernes et cohérentes avec notre image. Mohamed est un professionnel sérieux, engagé et agréable à accompagner sur un projet digital.',
+            rating: 5,
+						lien:'https://www.linkedin.com/services/page/3167b7322b9b3baa53/',
+						icone: "assets/images/avis/futura.jpeg"
+
         }
+        
     ] %}
 
 	<section class="millecode-hero-section" id="millecode-hero">
@@ -200,7 +183,7 @@
 					<div class="millecode-hero-content" data-millecode-reveal>
 						<span class="millecode-section-badge">
 							<i class="fa-solid fa-bolt"></i>
-							Agence web & mobile basée à Djibouti
+							Agence web & mobile
 						</span>
 
 						<h1 class="millecode-hero-title">
@@ -222,16 +205,16 @@
 						<div class="millecode-hero-socials">
 							<span class="millecode-hero-socials-label">Nous suivre :</span>
 							<div class="millecode-hero-socials-links">
-								<a href="#" class="millecode-social-link" aria-label="LinkedIn">
+								<a href="https://www.linkedin.com/company/millecode/" target="_blank	" class="millecode-social-link" aria-label="LinkedIn">
 									<i class="fa-brands fa-linkedin-in"></i>
 								</a>
-								<a href="#" class="millecode-social-link" aria-label="Facebook">
+								<a href="https://www.facebook.com/mMillecode" target="_blank" class="millecode-social-link" aria-label="Facebook">
 									<i class="fa-brands fa-facebook-f"></i>
 								</a>
 								<a href="https://wa.me/25377369958" class="millecode-social-link" aria-label="WhatsApp">
 									<i class="fa-brands fa-whatsapp"></i>
 								</a>
-								<a href="#" class="millecode-social-link" aria-label="X">
+								<a href="https://x.com/millecode" target="_blank" class="millecode-social-link" aria-label="X">
 									<i class="fa-brands fa-x-twitter"></i>
 								</a>
 							</div>
@@ -286,8 +269,7 @@
 				<span class="millecode-section-kicker">Ils nous font confiance</span>
 				<h2 class="millecode-section-title">Des partenaires, clients et projets qui renforcent notre crédibilité</h2>
 				<p class="millecode-section-text">
-					Nous intervenons avec sérieux auprès d’acteurs éducatifs, institutionnels et entrepreneuriaux
-																																																																																																																																																																																																																																																																																													                    qui ont besoin d’outils utiles, fiables et bien exécutés.
+					Nous intervenons avec sérieux auprès d’acteurs éducatifs, institutionnels et entrepreneuriaux qui ont besoin d’outils utiles, fiables et bien exécutés.
 				</p>
 			</div>
 
@@ -320,10 +302,10 @@
 							Une agence digitale structurée pour transformer des besoins concrets en solutions solides
 						</h2>
 						<p class="millecode-section-text millecode-section-text-left">
-							Millecode est une agence web et mobile installée à Djibouti. Nous travaillons avec une
-																																																																																																																																																																																																																																																																																																																																																																																																															                            approche à la fois technique, stratégique et humaine pour concevoir des solutions utiles,
-																																																																																																																																																																																																																																																																																																																																																																																																															                            bien pensées, esthétiques et durables. Notre ambition est simple : livrer des produits
-																																																																																																																																																																																																																																																																																																																																																																																																															                            crédibles qui inspirent confiance, simplifient le travail et soutiennent la croissance.
+							Millecode est une agence web et mobile. Nous travaillons avec une
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													                            approche à la fois technique, stratégique et humaine pour concevoir des solutions utiles,
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													                            bien pensées, esthétiques et durables. Notre ambition est simple : livrer des produits
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													                            crédibles qui inspirent confiance, simplifient le travail et soutiennent la croissance.
 						</p>
 
 						<div class="row g-3">
@@ -341,10 +323,10 @@
 						</div>
 
 						{# <div class="mt-4">
-																																																	<a href="#millecode-cta" class="millecode-btn millecode-btn-outline">
-																																																		Voir un peu plus sur nous
-																																																	</a>
-																																																</div> #}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													<a href="#millecode-cta" class="millecode-btn millecode-btn-outline">
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														Voir un peu plus sur nous
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													</a>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												</div> #}
 					</div>
 				</div>
 			</div>
@@ -358,7 +340,7 @@
 				<h2 class="millecode-section-title">Des expertises pensées pour la performance, l’utilité et l’image de marque</h2>
 				<p class="millecode-section-text">
 					Chaque service est conçu pour répondre à un besoin réel avec une exécution propre, une direction
-																																																																																																																																																																																																																																																																																													                    technique claire et une qualité de rendu digne d’une structure sérieuse.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							                    technique claire et une qualité de rendu digne d’une structure sérieuse.
 				</p>
 			</div>
 
@@ -397,60 +379,238 @@
 				<h2 class="millecode-section-title">Des projets concrets, structurés et pensés pour l’usage réel</h2>
 				<p class="millecode-section-text">
 					Nous créons des plateformes qui allient lisibilité, performance, logique métier et qualité
-																																																																																																																																																																																																																																																																																													                    d’exécution afin d’apporter une vraie valeur sur le terrain.
+																																																																																																																																																																																																																																																					                d’exécution afin d’apporter une vraie valeur sur le terrain.
 				</p>
 			</div>
 
 			<div class="millecode-project-list">
-				{% for project in millecode_projects %}
-					<article class="millecode-project-card" data-millecode-reveal>
-						<div class="row g-0 align-items-center">
-							<div class="col-lg-6">
-								<div class="millecode-project-content">
-									<span class="millecode-project-tag">Projet récent</span>
-									<h3 class="millecode-project-title">{{ project.title }}</h3>
+				<div class="row g-4">
+					<div class="col-12 col-md-6" data-millecode-reveal>
+						<article class="millecode-project-card">
+							<div class="row g-0 h-100 align-items-stretch">
+								<div class="col-lg-6">
+									<div class="millecode-project-content">
+										<span class="millecode-project-tag">Projet métier</span>
+										<h3 class="millecode-project-title">CRM Fibre optique</h3>
 
-									<div class="millecode-project-dates">
-										<div class="millecode-project-date-item">
-											<span class="millecode-project-date-label">Date de début</span>
-											<span class="millecode-project-date-value">{{ project.start_date }}</span>
-										</div>
-										<div class="millecode-project-date-item">
-											<span class="millecode-project-date-label">Date de fin</span>
-											<span class="millecode-project-date-value">{{ project.end_date }}</span>
+										<p class="millecode-project-text">
+											Outil métier de prospection terrain et de suivi commercial conçu pour améliorer
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        la collecte des données, la visibilité des opérations et la prise de décision
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        au quotidien.
+										</p>
+
+										<div class="millecode-project-stack">
+											<span class="millecode-project-stack-item">Conseils</span>
+											<span class="millecode-project-stack-item">Accompagnement</span>
 										</div>
 									</div>
+								</div>
 
-									<p class="millecode-project-text">{{ project.description }}</p>
+								<div class="col-lg-6">
+									<div class="millecode-project-visual-panel">
+										<div class="millecode-project-image-wrap">
+											<img src="{{ asset('assets/images/projects/fibre-dt.png') }}" alt="Aperçu du projet CRM Fibre optique" class="millecode-project-image">
+										</div>
 
-									<div class="millecode-project-stack">
-										{% for item in project.stack %}
-											<span class="millecode-project-stack-item">{{ item }}</span>
-										{% endfor %}
-									</div>
+										<div class="millecode-project-dates-grid">
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de début</span>
+												<span class="millecode-project-date-value">Octobre 2025</span>
+											</div>
 
-									<div class="mt-4">
-										<a href="#millecode-cta" class="millecode-btn millecode-btn-outline">
-											Voir le détail
-										</a>
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de fin</span>
+												<span class="millecode-project-date-value">Décembre 2025</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+						</article>
+					</div>
 
-							<div class="col-lg-6">
-								<div class="millecode-project-image-wrap">
-									<img src="{{ asset(project.image) }}" alt="{{ project.alt }}" class="millecode-project-image">
+					<div class="col-12 col-md-6" data-millecode-reveal>
+						<article class="millecode-project-card">
+							<div class="row g-0 h-100 align-items-stretch">
+								<div class="col-lg-6">
+									<div class="millecode-project-content">
+										<span class="millecode-project-tag">Plateforme web</span>
+										<h3 class="millecode-project-title">GESNOTE</h3>
+
+										<p class="millecode-project-text">
+											Plateforme de gestion scolaire pensée pour centraliser les données académiques,
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        simplifier le suivi administratif et produire des documents fiables dans un
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        environnement clair et structuré.
+										</p>
+
+										<div class="millecode-project-stack">
+											<span class="millecode-project-stack-item">Conception web</span>
+											<span class="millecode-project-stack-item">Développement web</span>
+											<span class="millecode-project-stack-item">UI/UX</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="millecode-project-visual-panel">
+										<div class="millecode-project-image-wrap">
+											<img src="{{ asset('assets/images/projects/gesnote.png') }}" alt="Aperçu du projet GESNOTE" class="millecode-project-image">
+										</div>
+
+										<div class="millecode-project-dates-grid">
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de début</span>
+												<span class="millecode-project-date-value">Août 2025</span>
+											</div>
+
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de fin</span>
+												<span class="millecode-project-date-value">Octobre 2025</span>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</article>
-				{% endfor %}
-			</div>
+						</article>
+					</div>
 
-			<div class="text-center mt-5" data-millecode-reveal>
-				<a href="#millecode-cta" class="millecode-btn millecode-btn-primary">
-					Voir tous les projets
-				</a>
+					<div class="col-12 col-md-6" data-millecode-reveal>
+						<article class="millecode-project-card">
+							<div class="row g-0 h-100 align-items-stretch">
+								<div class="col-lg-6">
+									<div class="millecode-project-content">
+										<span class="millecode-project-tag">Site vitrine</span>
+										<h3 class="millecode-project-title">Futura Solutions Partners</h3>
+
+										<p class="millecode-project-text">
+											Site institutionnel conçu pour valoriser un cabinet de conseil et de formation
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        basé à Djibouti, spécialisé dans le développement durable, la gouvernance,
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        l’inclusion sociale et le renforcement de capacités.
+										</p>
+
+										<div class="millecode-project-stack">
+											<span class="millecode-project-stack-item">Conceptions de A à Z</span>
+											<span class="millecode-project-stack-item">Développement web</span>
+											<span class="millecode-project-stack-item">Branding</span>
+											<span class="millecode-project-stack-item">Responsive</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="millecode-project-visual-panel">
+										<div class="millecode-project-image-wrap">
+											<img src="{{ asset('assets/images/projects/futura.png') }}" alt="Aperçu du projet Futura Solutions Partners" class="millecode-project-image">
+										</div>
+
+										<div class="millecode-project-dates-grid">
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de début</span>
+												<span class="millecode-project-date-value">Novembre 2024</span>
+											</div>
+
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de fin</span>
+												<span class="millecode-project-date-value">Janvier 2025</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<div class="col-12 col-md-6" data-millecode-reveal>
+						<article class="millecode-project-card">
+							<div class="row g-0 h-100 align-items-stretch">
+								<div class="col-lg-6">
+									<div class="millecode-project-content">
+										<span class="millecode-project-tag">E-commerce & services</span>
+										<h3 class="millecode-project-title">Electro-Multifix</h3>
+
+										<p class="millecode-project-text">
+											Plateforme web dédiée à la vente de pièces détachées électroniques et aux
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        services de réparation multimédia et électroménager, avec une interface
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        pensée pour la clarté, la confiance et la conversion.
+										</p>
+
+										<div class="millecode-project-stack">
+											<span class="millecode-project-stack-item">Conception web</span>
+											<span class="millecode-project-stack-item">Développement web</span>
+											<span class="millecode-project-stack-item">Responsive</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="millecode-project-visual-panel">
+										<div class="millecode-project-image-wrap">
+											<img src="{{ asset('assets/images/projects/electro-multifix.png') }}" alt="Aperçu du projet Electro-Multifix" class="millecode-project-image">
+										</div>
+
+										<div class="millecode-project-dates-grid">
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de début</span>
+												<span class="millecode-project-date-value">Octobre 2024</span>
+											</div>
+
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de fin</span>
+												<span class="millecode-project-date-value">Janvier 2025</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<div class="col-12 col-md-6" data-millecode-reveal>
+						<article class="millecode-project-card">
+							<div class="row g-0 h-100 align-items-stretch">
+								<div class="col-lg-6">
+									<div class="millecode-project-content">
+										<span class="millecode-project-tag">Solution digitale</span>
+										<h3 class="millecode-project-title">Transport Connect</h3>
+
+										<p class="millecode-project-text">
+											Solution digitale pensée pour moderniser la gestion du transport, fluidifier
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        les échanges entre les acteurs du secteur et améliorer le suivi opérationnel
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											                                        grâce à une plateforme claire, évolutive et orientée efficacité.
+										</p>
+
+										<div class="millecode-project-stack">
+											<span class="millecode-project-stack-item">Web app</span>
+											<span class="millecode-project-stack-item">UX</span>
+											<span class="millecode-project-stack-item">Back-office</span>
+											<span class="millecode-project-stack-item">Scalable</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="millecode-project-visual-panel">
+										<div class="millecode-project-image-wrap">
+											<img src="{{ asset('assets/images/projects/transporConnect.png') }}" alt="Aperçu du projet TransporConnect" class="millecode-project-image">
+										</div>
+
+										<div class="millecode-project-dates-grid">
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de début</span>
+												<span class="millecode-project-date-value">Novembre 2023</span>
+											</div>
+
+											<div class="millecode-project-date-item my-3 mx-3">
+												<span class="millecode-project-date-label">Date de fin</span>
+												<span class="millecode-project-date-value">Janvier 2024</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -462,7 +622,7 @@
 				<h2 class="millecode-section-title">Des retours qui confirment notre exigence de qualité</h2>
 				<p class="millecode-section-text">
 					Nous attachons autant d’importance à la qualité du rendu qu’à la clarté du suivi, à l’écoute et
-																																																																																																																																																																																																																																																																																													                    à la confiance créée tout au long du projet.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							                    à la confiance créée tout au long du projet.
 				</p>
 			</div>
 
@@ -477,11 +637,13 @@
 									{% endfor %}
 								</div>
 
-								<p class="millecode-testimonial-text">“{{ testimonial.text }}”</p>
+								<p class="millecode-testimonial-text">{{ testimonial.text }}</p>
 
-								<div class="millecode-testimonial-author">
+								<a href="{{testimonial.lien}}" class="text-center text-danger text-decoration-underline">Verifier l'avis</a>
+
+								<div class="millecode-testimonial-author mt-3">
 									<div class="millecode-testimonial-avatar">
-										{{ testimonial.name|slice(0, 1) }}
+										<img src="{{testimonial.icone}}" class="img-fluid" alt="">
 									</div>
 									<div>
 										<h3 class="millecode-testimonial-name">{{ testimonial.name }}</h3>
@@ -492,7 +654,6 @@
 						{% endfor %}
 					</div>
 				</div>
-
 				<div class="millecode-testimonials-controls">
 					<button type="button" class="millecode-testimonials-control" aria-label="Avis précédent" data-millecode-carousel-prev>
 						<i class="fa-solid fa-arrow-left"></i>
@@ -504,21 +665,15 @@
 			</div>
 		</div>
 	</section>
-
-	{% set millecodeContactModalList = app.flashes('millecode_contact_modal') %}
-	{% set millecodeContactModal = millecodeContactModalList|last %}
-
-	<section class="millecode-contact-section" id="millecode-contact">
+	{% set millecodeContactModalList = app.flashes('millecode_contact_modal') %}{% set millecodeContactModal = millecodeContactModalList|last %}<section class="millecode-contact-section" id="millecode-cta">
 		<div class="container millecode-container">
 			<div class="millecode-section-heading text-center" data-millecode-reveal>
 				<span class="millecode-section-kicker">Contactez-nous</span>
 				<h2 class="millecode-section-title">Parlons de votre projet avec sérieux et clarté</h2>
 				<p class="millecode-section-text">
 					Un besoin en site web, CRM, SaaS, application métier, API ou accompagnement technique ?
-																														                Écrivez-nous. Millecode vous répond avec une approche claire, structurée et orientée résultats.
-				</p>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								                Écrivez-nous. Millecode vous répond avec une approche claire, structurée et orientée résultats.</p>
 			</div>
-
 			<div class="row g-4 align-items-stretch">
 				<div class="col-md-6">
 					<div class="row g-4 h-100">
@@ -547,12 +702,12 @@
 								</div>
 								<div class="millecode-contact-card-content">
 									<span class="millecode-contact-card-kicker">Adresse</span>
-									<h3 class="millecode-contact-card-title">Djibouti Quartier 7 près de l'UNFD</h3>
+									<h3 class="millecode-contact-card-title">République de Djibouti</h3>
 									<p class="millecode-contact-card-link millecode-contact-card-link-static">
-										République de Djibouti
+										Djibouti Quartier 7 près de l'UNFD
 									</p>
 									<p class="millecode-contact-card-text">
-										Nous accompagnons les entreprises, institutions et porteurs de projets au niveau local et à distance.
+										Nous accompagnons les entreprises, institutions et porteurs de projets au niveau local et à l'international.
 									</p>
 								</div>
 							</article>
@@ -577,7 +732,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-6" data-millecode-reveal>
 					<div class="millecode-contact-form-card">
 						<div class="millecode-contact-form-head">
@@ -608,7 +762,6 @@
 								<span>Veuillez corriger les champs signalés avant de renvoyer votre message.</span>
 							</div>
 						{% endif %}
-
 						<div class="row g-3">
 							<div class="col-md-6">
 								<div class="millecode-contact-field">
@@ -695,10 +848,7 @@
 								</div>
 							</div>
 						</div>
-
-						{{ form_rest(contactForm) }}
-
-						<div class="millecode-contact-form-footer">
+						{{ form_rest(contactForm) }}<div class="millecode-contact-form-footer">
 							<p class="millecode-contact-form-note">
 								En envoyant ce formulaire, vous acceptez que Millecode traite votre demande pour vous recontacter.
 							</p>
@@ -708,14 +858,11 @@
 								Envoyer ma demande
 							</button>
 						</div>
-
-						{{ form_end(contactForm) }}
-					</div>
+						{{ form_end(contactForm) }}</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
 	{% if millecodeContactModal %}
 		<div class="modal fade millecode-contact-modal" id="millecodeContactModal" tabindex="-1" aria-labelledby="millecodeContactModalLabel" aria-hidden="true" data-millecode-contact-modal="true" data-millecode-contact-modal-autoshow="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -730,24 +877,18 @@
 								<i class="fa-solid fa-circle-xmark"></i>
 							{% endif %}
 						</div>
-
 						<button type="button" class="btn-close millecode-contact-modal-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
 					</div>
-
 					<div class="millecode-contact-modal-body">
 						<span class="millecode-contact-modal-kicker">Formulaire de contact</span>
 						<h3 class="millecode-contact-modal-title" id="millecodeContactModalLabel">
-							{{ millecodeContactModal.title }}
-						</h3>
+							{{ millecodeContactModal.title }}</h3>
 						<p class="millecode-contact-modal-text">
-							{{ millecodeContactModal.message }}
-						</p>
+							{{ millecodeContactModal.message }}</p>
 					</div>
-
 					<div class="millecode-contact-modal-footer">
 						<button type="button" class="millecode-btn millecode-btn-primary" data-bs-dismiss="modal">
-							Fermer
-						</button>
+							Fermer</button>
 					</div>
 				</div>
 			</div>

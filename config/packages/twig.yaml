@@ -1,5 +1,7 @@
 twig:
-    file_name_pattern: '*.twig'
+    file_name_pattern: "*.twig"
+    date:
+        timezone: "Africa/Djibouti"
 
 when@test:
     twig:

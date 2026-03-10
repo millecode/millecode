@@ -166,7 +166,7 @@ button {
     font-weight: 800;
     line-height: 1.12;
     letter-spacing: -0.03em;
-    color: var(--millecode-color-primary-strong);
+    color: var(--millecode-color-primary);
 }
 
 .millecode-section-title {
@@ -964,77 +964,84 @@ body.millecode-nav-open .millecode-navbar-drawer {
    PROJECTS
 ========================================================= */
 .millecode-project-list {
-    display: grid;
-    gap: 1.75rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .millecode-project-card {
+    height: 100%;
     overflow: hidden;
-    border-radius: 32px;
-    background: linear-gradient(180deg, #ffffff 0%, #fafeff 100%);
-    border: 1px solid var(--millecode-color-border);
-    box-shadow: var(--millecode-shadow-sm);
+    border-radius: 30px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border: 1px solid var(--millecode-color-primary);
+    box-shadow: 0 18px 48px rgba(0, 43, 91, 0.08);
+    transition:
+        transform var(--millecode-transition-base),
+        box-shadow var(--millecode-transition-base),
+        border-color var(--millecode-transition-base);
+}
+
+.millecode-project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 60px rgba(0, 43, 91, 0.12);
+}
+
+.millecode-project-card .row {
+    min-height: 100%;
 }
 
 .millecode-project-content {
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: clamp(1.5rem, 2.8vw, 2.2rem);
+}
+
+.millecode-project-tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 38px;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: rgba(40, 167, 69, 0.08);
+    color: var(--millecode-color-secondary);
+    border: 1px solid rgba(40, 167, 69, 0.16);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .millecode-project-title {
-    margin: 1rem 0 1rem;
-    font-size: clamp(1.8rem, 2.6vw, 2.45rem);
-    line-height: 1.12;
+    margin: 1rem 0 0.95rem;
+    font-size: clamp(1.45rem, 2vw, 2rem);
+    line-height: 1.18;
     font-weight: 800;
-    color: var(--millecode-color-primary-strong);
-}
-
-.millecode-project-dates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-}
-
-.millecode-project-date-item {
-    min-width: 170px;
-    padding: 0.9rem 1rem;
-    border-radius: 20px;
-    background: rgba(0, 43, 91, 0.04);
-    border: 1px solid rgba(0, 43, 91, 0.08);
-}
-
-.millecode-project-date-label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
     color: var(--millecode-color-primary);
-    margin-bottom: 0.25rem;
-}
-
-.millecode-project-date-value {
-    font-size: 0.96rem;
-    font-weight: 700;
-    color: var(--millecode-color-text);
 }
 
 .millecode-project-text {
-    margin-bottom: 1.25rem;
+    margin: 0 0 1.3rem;
+    color: var(--millecode-color-text-soft);
+    line-height: 1.85;
+    font-size: 0.98rem;
 }
 
 .millecode-project-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.65rem;
+    margin-top: auto;
 }
 
 .millecode-project-stack-item {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 38px;
     padding: 0.55rem 0.9rem;
-    border-radius: var(--millecode-radius-pill);
+    border-radius: 999px;
     background: linear-gradient(
         180deg,
         rgba(238, 245, 251, 0.9),
@@ -1042,30 +1049,111 @@ body.millecode-nav-open .millecode-navbar-drawer {
     );
     color: var(--millecode-color-primary);
     border: 1px solid rgba(0, 43, 91, 0.08);
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 800;
+    letter-spacing: 0.01em;
+}
+
+.millecode-project-visual-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    padding: 1.2rem;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(40, 167, 69, 0.08),
+            transparent 28%
+        ),
+        linear-gradient(135deg, rgba(0, 43, 91, 0.04), rgba(40, 167, 69, 0.06));
+    border-left: 1px solid rgba(0, 43, 91, 0.06);
 }
 
 .millecode-project-image-wrap {
-    height: 100%;
-    min-height: 100%;
-    padding: 1rem;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 43, 91, 0.04),
-        rgba(40, 167, 69, 0.06)
-    );
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    min-height: 260px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: 0 12px 28px rgba(0, 43, 91, 0.08);
 }
 
 .millecode-project-image {
     width: 100%;
     height: 100%;
-    min-height: 390px;
+    display: block;
     object-fit: cover;
-    border-radius: 24px;
-    box-shadow: var(--millecode-shadow-xs);
 }
 
+.millecode-project-dates-grid {
+    grid-template-columns: 1fr;
+}
+
+.millecode-project-date-item {
+    min-width: 0;
+    padding: 1rem 1rem 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(0, 43, 91, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 43, 91, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.millecode-project-date-label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--millecode-color-primary);
+    margin-bottom: 0.35rem;
+}
+
+.millecode-project-date-value {
+    display: block;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--millecode-color-text);
+    line-height: 1.4;
+}
+
+@media (max-width: 991.98px) {
+    .millecode-project-visual-panel {
+        border-left: 0;
+        border-top: 1px solid rgba(0, 43, 91, 0.06);
+    }
+
+    .millecode-project-image-wrap {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .millecode-project-card {
+        border-radius: 24px;
+    }
+
+    .millecode-project-content,
+    .millecode-project-visual-panel {
+        padding: 1.2rem;
+    }
+
+    .millecode-project-title {
+        font-size: 1.35rem;
+    }
+
+    .millecode-project-image-wrap {
+        min-height: 220px;
+        border-radius: 20px;
+    }
+
+    .millecode-project-dates-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* =========================================================
    TESTIMONIALS
 ========================================================= */
